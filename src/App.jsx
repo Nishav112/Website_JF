@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <div
-      className="app-root min-h-screen flex flex-col bg-[#F9FBF9] text-[#091E16] antialiased selection:bg-[#059669] selection:text-white"
+      className="app-root min-h-screen flex flex-col bg-[#F9FBF9] text-[#091E16] antialiased selection:bg-[#059669] selection:text-white pb-14 lg:pb-0"
       style={{ fontFamily: "'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif", overflowX: "hidden" }}
     >
       <style>{`
@@ -31,11 +31,15 @@ export default function App() {
           --forest: #091E16;
           --emerald: #059669;
           --emerald-dark: #047857;
-          --emerald-light: #ECFDF5;
+          --emerald-light: #ECF5EE;
           --canvas: #F9FBF9;
           --surface: #FFFFFF;
-          --surface-alt: #F1F5F3;
+          --surface-alt: #F3F4F6;
           --line: #E2E8F0;
+        }
+        body {
+          background-color: #F9FBF9;
+          color: #091E16;
         }
         .disp {
           font-family: 'Schibsted Grotesk', 'Plus Jakarta Sans', sans-serif;
@@ -66,9 +70,9 @@ export default function App() {
           transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .card-hover:hover {
-          transform: translateY(-3px);
-          border-color: rgba(5, 150, 105, 0.35);
-          box-shadow: 0 12px 32px -8px rgba(9, 30, 22, 0.08);
+          transform: translateY(-2px);
+          border-color: rgba(5, 150, 105, 0.4);
+          box-shadow: 0 10px 28px -6px rgba(44, 38, 30, 0.08);
         }
         .btn-smooth {
           transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
@@ -84,7 +88,7 @@ export default function App() {
         @media (min-width: 1024px) { .footer-grid { grid-template-columns: 1.8fr repeat(4, 1fr); } }
         .rates-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
         .rates-col { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
-        @media (max-width: 768px) { .rates-cols { grid-template-columns: minmax(0, 1fr); } }
+        @media (max-width: 768px) { .rates-cols { grid-template-columns: minmax(0, 1fr); gap: 16px; } }
         a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #059669; outline-offset: 2px; }
         @media (prefers-reduced-motion: reduce) {
           .ticker-track, .draw-in, .hero-rise { animation: none !important; opacity: 1 !important; }

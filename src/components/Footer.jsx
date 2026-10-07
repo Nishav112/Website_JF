@@ -48,18 +48,18 @@ function Footer() {
 
   return (
     <footer className="bg-[#091E16] text-slate-300 border-t border-white/10">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-16 pb-10">
-        <div className="footer-grid grid gap-10 mb-12">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-20 sm:pb-10">
+        <div className="footer-grid grid gap-8 sm:gap-10 mb-8 sm:mb-12">
           {/* Company Regulatory Info */}
           <div className="pr-0 lg:pr-6">
             <img
               src="/jf-logo-white.png"
               alt="JF Securities"
               referrerPolicy="no-referrer"
-              className="h-9 w-auto block mb-5"
+              className="h-8 sm:h-9 w-auto block mb-4 sm:mb-5"
             />
 
-            <div className="flex flex-col gap-2 text-xs leading-relaxed text-slate-300/90">
+            <div className="flex flex-col gap-1.5 sm:gap-2 text-[11px] sm:text-xs leading-relaxed text-slate-300/90">
               <p>
                 {t("Stock Brokerage Services License No 20 by Securities Board of Nepal (SEBON).")}
               </p>
@@ -78,11 +78,11 @@ function Footer() {
 
           {/* Quick Links */}
           <div>
-            <div className="text-xs font-semibold text-white tracking-wide mb-4">
+            <div className="text-xs font-semibold text-white tracking-wide mb-3 sm:mb-4">
               {t("Quick links")}
             </div>
 
-            <div className="flex flex-col gap-2.5 text-[13.5px]">
+            <div className="flex flex-col gap-2 sm:gap-2.5 text-xs sm:text-[13.5px]">
               <Link to="/" className="text-slate-300 hover:text-emerald-400 transition-colors">
                 {t("Home")}
               </Link>
@@ -116,11 +116,11 @@ function Footer() {
 
           {/* Important Information */}
           <div>
-            <div className="text-xs font-semibold text-white tracking-wide mb-4">
+            <div className="text-xs font-semibold text-white tracking-wide mb-3 sm:mb-4">
               {t("Important Information")}
             </div>
 
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-2 sm:gap-2.5">
               {IMPORTANT_INFORMATION.map((item, i) => {
                 if (item.type === "officer") {
                   return (
@@ -128,7 +128,7 @@ function Footer() {
                       key={i}
                       type="button"
                       onClick={() => setSelectedOfficer(item)}
-                      className="text-[13.5px] text-slate-300 hover:text-emerald-400 transition-colors text-left cursor-pointer"
+                      className="text-xs sm:text-[13.5px] text-slate-300 hover:text-emerald-400 transition-colors text-left cursor-pointer"
                     >
                       {t(item.title)}
                     </button>
@@ -141,7 +141,7 @@ function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[13.5px] text-slate-300 hover:text-emerald-400 transition-colors"
+                    className="inline-flex items-center gap-1 text-xs sm:text-[13.5px] text-slate-300 hover:text-emerald-400 transition-colors"
                   >
                     <span>{t(item.title)}</span>
                     <ArrowUpRight size={13} className="opacity-75" />
@@ -153,11 +153,11 @@ function Footer() {
 
           {/* Contact */}
           <div>
-            <div className="text-xs font-semibold text-white tracking-wide mb-4">
+            <div className="text-xs font-semibold text-white tracking-wide mb-3 sm:mb-4">
               {t("Contact")}
             </div>
 
-            <div className="flex flex-col gap-3 text-[13.5px] text-slate-300">
+            <div className="flex flex-col gap-2 sm:gap-3 text-xs sm:text-[13.5px] text-slate-300">
               <div className="flex items-start gap-2">
                 <MapPin size={15} className="text-emerald-400 shrink-0 mt-0.5" />
                 <span>{t("Dharma Path, New Road, Kathmandu")}</span>
@@ -183,10 +183,10 @@ function Footer() {
         </div>
 
         {/* Bottom Legal Bar */}
-        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+        <div className="pt-5 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-[11px] sm:text-xs text-slate-400">
           <span>{t("© 2026 JF Securities. All rights reserved.")}</span>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5 sm:gap-6">
             <Link
               to="/privacy-policy"
               className="hover:text-emerald-400 transition-colors"
@@ -208,32 +208,32 @@ function Footer() {
       {selectedOfficer && (
         <div
           onClick={() => setSelectedOfficer(null)}
-          className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-5 z-50"
+          className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4 sm:p-5 z-50"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-lg bg-white rounded-2xl p-6 sm:p-8 shadow-2xl relative text-[#091E16] border border-slate-200"
+            className="w-full max-w-lg bg-white rounded-xl sm:rounded-2xl p-5 sm:p-8 shadow-2xl relative text-[#091E16] border border-slate-200"
           >
             <button
               type="button"
               onClick={() => setSelectedOfficer(null)}
-              className="absolute top-4 right-4 w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 cursor-pointer transition-colors"
+              className="absolute top-4 right-4 w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 cursor-pointer transition-colors"
               aria-label={t("Close")}
             >
-              <X size={18} />
+              <X size={16} />
             </button>
 
-            <div className="mb-5">
+            <div className="mb-4 sm:mb-5">
               <div className="text-xs font-semibold text-[#059669] mb-1">
                 {t(selectedOfficer.role)}
               </div>
 
-              <h2 className="disp text-2xl sm:text-3xl text-[#091E16]">
+              <h2 className="disp text-xl sm:text-2xl md:text-3xl text-[#091E16]">
                 {t(selectedOfficer.name)}
               </h2>
             </div>
 
-            <div className="bg-[#F9FBF9] border border-slate-200/80 rounded-xl p-4 mb-5 space-y-2 text-sm">
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 sm:p-4 mb-4 sm:mb-5 space-y-2 text-xs sm:text-sm">
               <div className="flex items-center justify-between">
                 <span className="text-slate-500">{t("Contact Number:")}</span>
                 <a
@@ -255,7 +255,7 @@ function Footer() {
               </div>
             </div>
 
-            <p className="text-sm leading-relaxed text-slate-600">
+            <p className="text-xs sm:text-sm leading-relaxed text-slate-600">
               {t(selectedOfficer.message)}
             </p>
           </div>

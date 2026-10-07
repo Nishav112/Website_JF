@@ -1,1 +1,84 @@
 @import "tailwindcss";
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F9FBF9;
+  color: #091E16;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Editorial display serif for headings */
+.disp {
+  font-family: var(--font-serif);
+  letter-spacing: -0.015em;
+}
+
+/* Monospace numerals for financial figures */
+.mono-num {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1, "zero" 1;
+}
+
+/* Clean card hover elevation */
+.card-hover {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(9, 30, 22, 0.06), 0 8px 10px -6px rgba(9, 30, 22, 0.04);
+}
+
+@media (max-width: 640px) {
+  .card-hover:hover {
+    transform: none; /* Disable hover jumps on mobile touch */
+  }
+}
+
+/* Custom scrollbars with clean white/slate tones */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F9FBF9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Smooth continuous ticker animation */
+@keyframes tickerMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tickerMove 40s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}

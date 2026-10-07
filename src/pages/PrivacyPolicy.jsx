@@ -4,27 +4,27 @@ function PrivacyPolicy() {
   const { t } = useLang();
 
   return (
-    <main className="max-w-[900px] mx-auto px-5 sm:px-6 py-14 md:py-20">
-      <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-12 shadow-xs">
-        <div className="text-xs font-semibold text-[#059669] mb-2">
+    <main className="max-w-[900px] mx-auto px-4 sm:px-6 py-8 sm:py-14 md:py-20">
+      <div className="bg-white rounded-xl sm:rounded-2xl border border-slate-200/90 p-4 sm:p-12 shadow-xs">
+        <div className="text-xs font-semibold text-[#059669] mb-1 sm:mb-2">
           {t("JF Securities")}
         </div>
 
-        <h1 className="disp text-3xl sm:text-4xl text-[#091E16]">
+        <h1 className="disp text-2xl sm:text-4xl text-[#091E16]">
           {t("Privacy Policy")}
         </h1>
 
-        <p className="mt-2 text-xs text-slate-500">
+        <p className="mt-1 sm:mt-2 text-[11px] sm:text-xs text-slate-500">
           {t("Last Updated: 28 September 2026")}
         </p>
 
-        <div className="mt-8 space-y-6 text-sm sm:text-[15px] leading-relaxed text-slate-600">
+        <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-6 text-xs sm:text-[15px] leading-relaxed text-slate-600">
           <p>
             {t("J.F. Securities Company Pvt. Ltd. respects your privacy and is committed to protecting the information you provide through our website.")}
           </p>
 
           <div>
-            <h2 className="disp text-lg text-[#091E16] mb-2">
+            <h2 className="disp text-base sm:text-lg text-[#091E16] mb-1.5 sm:mb-2">
               {t("Information We Collect")}
             </h2>
             <p>
@@ -33,7 +33,7 @@ function PrivacyPolicy() {
           </div>
 
           <div>
-            <h2 className="disp text-lg text-[#091E16] mb-2">
+            <h2 className="disp text-base sm:text-lg text-[#091E16] mb-1.5 sm:mb-2">
               {t("How We Use Your Information")}
             </h2>
             <p className="mb-2">{t("Your information may be used to:")}</p>
@@ -47,7 +47,7 @@ function PrivacyPolicy() {
           </div>
 
           <div>
-            <h2 className="disp text-lg text-[#091E16] mb-2">
+            <h2 className="disp text-base sm:text-lg text-[#091E16] mb-1.5 sm:mb-2">
               {t("Information Security")}
             </h2>
             <p>
@@ -56,7 +56,7 @@ function PrivacyPolicy() {
           </div>
 
           <div>
-            <h2 className="disp text-lg text-[#091E16] mb-2">
+            <h2 className="disp text-base sm:text-lg text-[#091E16] mb-1.5 sm:mb-2">
               {t("Third-Party Links")}
             </h2>
             <p>
@@ -65,7 +65,7 @@ function PrivacyPolicy() {
           </div>
 
           <div>
-            <h2 className="disp text-lg text-[#091E16] mb-2">
+            <h2 className="disp text-base sm:text-lg text-[#091E16] mb-1.5 sm:mb-2">
               {t("Policy Updates")}
             </h2>
             <p>
@@ -73,7 +73,7 @@ function PrivacyPolicy() {
             </p>
           </div>
 
-          <p className="pt-4 border-t border-slate-100 text-xs text-slate-500">
+          <p className="pt-4 border-t border-slate-100 text-[11px] sm:text-xs text-slate-500">
             {t("For privacy-related questions, please contact J.F. Securities Company Pvt. Ltd. through the contact details provided on this website.")}
           </p>
         </div>

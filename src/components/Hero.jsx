@@ -19,7 +19,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
       {/* Subtle architectural background grid */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-45"
+        className="pointer-events-none absolute inset-0 opacity-40"
         style={{
           backgroundImage:
             "radial-gradient(#CBD5E1 1px, transparent 1px)",
@@ -27,12 +27,12 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
         }}
       />
 
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-12 pb-16 md:pt-20 md:pb-24 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-7 pb-10 sm:pt-12 sm:pb-16 md:pt-20 md:pb-24 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-7 sm:gap-10 lg:gap-12 items-center">
           {/* Left Column: Proposition & Primary Action */}
           <div className="lg:col-span-7">
             <div
-              className="hero-rise text-xs sm:text-sm font-semibold text-[#059669] mb-4 flex flex-wrap items-center gap-2"
+              className="hero-rise text-xs sm:text-sm font-semibold text-[#059669] mb-3 sm:mb-4 flex flex-wrap items-center gap-2"
               style={{ animationDelay: "0.04s" }}
             >
               <span>{t("Your trusted partner in the capital market")}</span>
@@ -41,7 +41,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
             </div>
 
             <h1
-              className="disp hero-rise text-[2.25rem] sm:text-[3rem] lg:text-[3.5rem] leading-[1.06] text-[#091E16] mb-5 max-w-2xl"
+              className="disp hero-rise text-2xl xs:text-3xl sm:text-4xl lg:text-[3.25rem] leading-[1.12] text-[#091E16] mb-3 sm:mb-5 max-w-2xl"
               style={{ animationDelay: "0.12s" }}
             >
               {t("Trade with confidence.")}{" "}
@@ -49,7 +49,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
             </h1>
 
             <p
-              className="hero-rise text-base sm:text-[17px] text-slate-600 leading-relaxed max-w-xl mb-8"
+              className="hero-rise text-sm sm:text-base md:text-[17px] text-slate-600 leading-relaxed max-w-xl mb-6 sm:mb-8"
               style={{ animationDelay: "0.2s" }}
             >
               {t("Stock Broker #7 · Member of the Nepal Stock Exchange.")}{" "}
@@ -58,32 +58,32 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
 
             {/* Primary CTA and Secondary Actions */}
             <div
-              className="hero-rise flex flex-wrap items-center gap-3.5"
+              className="hero-rise flex flex-wrap items-center gap-2.5 sm:gap-3.5"
               style={{ animationDelay: "0.28s" }}
             >
               <a
                 href="https://tms07.nepsetms.com.np/client-registration"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-smooth inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-semibold text-sm sm:text-[15px] shadow-sm whitespace-nowrap"
+                className="btn-smooth inline-flex items-center gap-1.5 sm:gap-2 px-4.5 sm:px-6 py-2.5 sm:py-3.5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-semibold text-xs sm:text-[15px] shadow-sm whitespace-nowrap"
               >
                 <span>{t("Open trading account")}</span>
-                <ArrowRight size={17} />
+                <ArrowRight size={15} />
               </a>
 
               <a
                 href="https://ckyc.cdsc.com.np/registration"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-smooth inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-slate-300 bg-white hover:border-[#059669] hover:text-[#059669] text-[#091E16] font-semibold text-sm sm:text-[15px] whitespace-nowrap"
+                className="btn-smooth inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#059669] hover:text-[#059669] text-[#091E16] font-semibold text-xs sm:text-[15px] whitespace-nowrap shadow-xs"
               >
                 <span>{t("Open CKYC account")}</span>
-                <ExternalLink size={15} className="opacity-70" />
+                <ExternalLink size={14} className="opacity-70" />
               </a>
 
               <Link
                 to="/services"
-                className="btn-smooth inline-flex items-center px-4 py-3.5 rounded-xl text-slate-600 hover:text-[#091E16] font-semibold text-sm sm:text-[15px] whitespace-nowrap"
+                className="btn-smooth inline-flex items-center px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-xl text-slate-600 hover:text-[#091E16] font-semibold text-xs sm:text-[15px] whitespace-nowrap"
               >
                 {t("Learn more")}
               </Link>
@@ -91,24 +91,24 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
 
             {/* Clean unboxed regulatory metadata strip */}
             <div
-              className="hero-rise mt-10 pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-4 max-w-lg"
+              className="hero-rise mt-6 sm:mt-10 pt-4 sm:pt-6 border-t border-slate-200 grid grid-cols-3 gap-2 sm:gap-4 max-w-lg"
               style={{ animationDelay: "0.36s" }}
             >
               <div>
-                <div className="text-xs text-slate-500">{t("Broker License")}</div>
-                <div className="text-sm sm:text-base font-bold text-[#091E16] mono-num mt-0.5">
+                <div className="text-[11px] sm:text-xs text-slate-500">{t("Broker License")}</div>
+                <div className="text-xs sm:text-base font-bold text-[#091E16] mono-num mt-0.5">
                   NEPSE #07
                 </div>
               </div>
               <div>
-                <div className="text-xs text-slate-500">{t("DP ID")}</div>
-                <div className="text-sm sm:text-base font-bold text-[#091E16] mono-num mt-0.5">
+                <div className="text-[11px] sm:text-xs text-slate-500">{t("DP ID")}</div>
+                <div className="text-xs sm:text-base font-bold text-[#091E16] mono-num mt-0.5">
                   13023300
                 </div>
               </div>
               <div>
-                <div className="text-xs text-slate-500">{t("Regulator")}</div>
-                <div className="text-sm sm:text-base font-bold text-[#091E16] mt-0.5">
+                <div className="text-[11px] sm:text-xs text-slate-500">{t("Regulator")}</div>
+                <div className="text-xs sm:text-base font-bold text-[#091E16] mt-0.5">
                   SEBON & CDSCL
                 </div>
               </div>
@@ -120,26 +120,26 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
             className="lg:col-span-5 hero-rise"
             style={{ animationDelay: "0.22s" }}
           >
-            <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-lg shadow-slate-900/5">
+            <div className="bg-white rounded-xl sm:rounded-2xl border border-slate-200/90 p-3.5 sm:p-6 shadow-md shadow-slate-900/5">
               {/* Terminal Top Header & Interactive Segmented Tabs */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-100">
+              <div className="flex flex-wrap items-center justify-between gap-2.5 pb-3 sm:pb-4 border-b border-slate-100">
                 <div>
-                  <div className="text-xs text-slate-500 font-medium">
+                  <div className="text-[11px] sm:text-xs text-slate-500 font-medium">
                     NEPSE Market Pulse
                   </div>
-                  <div className="flex items-baseline gap-2.5 mt-0.5">
-                    <span className="disp text-2xl sm:text-3xl font-bold text-[#091E16] mono-num">
+                  <div className="flex items-baseline gap-2 mt-0.5">
+                    <span className="disp text-xl sm:text-3xl font-bold text-[#091E16] mono-num">
                       {currentVal.toFixed(2)}
                     </span>
                     <span
-                      className={`inline-flex items-center gap-1 text-xs font-semibold mono-num ${
+                      className={`inline-flex items-center gap-0.5 text-xs font-semibold mono-num ${
                         isUp ? "text-[#059669]" : "text-rose-600"
                       }`}
                     >
                       {isUp ? (
-                        <TrendingUp size={13} />
+                        <TrendingUp size={12} />
                       ) : (
-                        <TrendingDown size={13} />
+                        <TrendingDown size={12} />
                       )}
                       {isUp ? "+" : ""}
                       {change.toFixed(2)} ({pct.toFixed(2)}%)
@@ -151,7 +151,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                 <div
                   role="tablist"
                   aria-label="Market view selector"
-                  className="flex items-center gap-1 p-1 bg-slate-100 rounded-lg"
+                  className="flex items-center gap-1 p-0.5 sm:p-1 bg-slate-100 rounded-lg"
                 >
                   {[
                     { id: "index", label: "Chart" },
@@ -164,7 +164,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                       role="tab"
                       aria-selected={activeTab === tab.id}
                       onClick={() => setActiveTab(tab.id)}
-                      className={`px-2.5 py-1.5 text-xs font-semibold rounded-md transition-all duration-150 whitespace-nowrap cursor-pointer ${
+                      className={`px-2 sm:px-2.5 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold rounded-md transition-all duration-150 whitespace-nowrap cursor-pointer ${
                         activeTab === tab.id
                           ? "bg-white text-[#091E16] shadow-xs"
                           : "text-slate-600 hover:text-[#091E16]"
@@ -177,10 +177,10 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
               </div>
 
               {/* Dynamic Tab Content */}
-              <div className="mt-4 min-h-[210px] flex flex-col justify-between">
+              <div className="mt-3 sm:mt-4 min-h-[160px] sm:min-h-[210px] flex flex-col justify-between">
                 {activeTab === "index" && (
                   <div>
-                    <div className="relative h-[165px] w-full pt-2">
+                    <div className="relative h-[115px] sm:h-[165px] w-full pt-1 sm:pt-2">
                       <svg
                         viewBox="0 0 640 220"
                         preserveAspectRatio="none"
@@ -189,7 +189,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                       >
                         <defs>
                           <linearGradient id="emeraldArea" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#059669" stopOpacity="0.24" />
+                            <stop offset="0%" stopColor="#059669" stopOpacity="0.22" />
                             <stop offset="100%" stopColor="#059669" stopOpacity="0.0" />
                           </linearGradient>
                         </defs>
@@ -214,15 +214,15 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                       </svg>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100 text-xs">
+                    <div className="grid grid-cols-3 gap-1 sm:gap-2 pt-2.5 sm:pt-3 border-t border-slate-100 text-[11px] sm:text-xs">
                       <div>
-                        <span className="text-slate-400 block">Session Open</span>
+                        <span className="text-slate-400 block text-[10px] sm:text-xs">Session Open</span>
                         <span className="font-semibold text-[#091E16] mono-num">
                           {openVal.toFixed(2)}
                         </span>
                       </div>
                       <div>
-                        <span className="text-slate-400 block">Trading Hours</span>
+                        <span className="text-slate-400 block text-[10px] sm:text-xs">Trading Hours</span>
                         <span className="font-semibold text-[#091E16] mono-num">
                           11:00–15:00
                         </span>
@@ -232,10 +232,10 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                           href="https://www.nepalstock.com/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[#059669] hover:text-[#047857] font-semibold mt-1"
+                          className="inline-flex items-center gap-1 text-[#059669] hover:text-[#047857] font-semibold mt-0.5 sm:mt-1"
                         >
                           <span>NEPSE Live</span>
-                          <ExternalLink size={12} />
+                          <ExternalLink size={11} />
                         </a>
                       </div>
                     </div>
@@ -247,10 +247,10 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                     {GAINERS.map((row, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center justify-between py-2.5 text-sm"
+                        className="flex items-center justify-between py-2 sm:py-2.5 text-xs sm:text-sm"
                       >
-                        <div className="flex items-center gap-2.5">
-                          <span className="text-xs text-slate-400 mono-num w-4">
+                        <div className="flex items-center gap-2 sm:gap-2.5">
+                          <span className="text-[11px] text-slate-400 mono-num w-3.5 sm:w-4">
                             0{idx + 1}
                           </span>
                           <span className="font-medium text-[#091E16]">
@@ -258,7 +258,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                           </span>
                         </div>
                         <span className="font-semibold text-[#059669] mono-num flex items-center gap-1 text-xs">
-                          <TrendingUp size={13} />
+                          <TrendingUp size={12} />
                           {row.chg}
                         </span>
                       </div>
@@ -271,10 +271,10 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                     {LOSERS.map((row, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center justify-between py-2.5 text-sm"
+                        className="flex items-center justify-between py-2 sm:py-2.5 text-xs sm:text-sm"
                       >
-                        <div className="flex items-center gap-2.5">
-                          <span className="text-xs text-slate-400 mono-num w-4">
+                        <div className="flex items-center gap-2 sm:gap-2.5">
+                          <span className="text-[11px] text-slate-400 mono-num w-3.5 sm:w-4">
                             0{idx + 1}
                           </span>
                           <span className="font-medium text-[#091E16]">
@@ -282,7 +282,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                           </span>
                         </div>
                         <span className="font-semibold text-rose-600 mono-num flex items-center gap-1 text-xs">
-                          <TrendingDown size={13} />
+                          <TrendingDown size={12} />
                           {row.chg}
                         </span>
                       </div>

@@ -4,26 +4,26 @@ function TermsAndConditions() {
   const { t } = useLang();
 
   return (
-    <main className="max-w-[900px] mx-auto px-5 sm:px-6 py-14 md:py-20">
-      <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-12 shadow-xs">
-        <div className="text-xs font-semibold text-[#059669] mb-2">
+    <main className="max-w-[900px] mx-auto px-4 sm:px-6 py-8 sm:py-14 md:py-20">
+      <div className="bg-white rounded-xl sm:rounded-2xl border border-slate-200/90 p-4 sm:p-12 shadow-xs">
+        <div className="text-xs font-semibold text-[#059669] mb-1 sm:mb-2">
           {t("JF Securities")}
         </div>
 
-        <h1 className="disp text-3xl sm:text-4xl text-[#091E16]">
+        <h1 className="disp text-2xl sm:text-4xl text-[#091E16]">
           {t("Terms & Conditions")}
         </h1>
 
-        <p className="mt-2 text-xs text-slate-500">
+        <p className="mt-1 sm:mt-2 text-[11px] sm:text-xs text-slate-500">
           {t("Last Updated: 28 September 2026")}
         </p>
 
-        <div className="mt-8 space-y-5 text-sm sm:text-[15px] leading-relaxed text-slate-600">
-          <p className="font-medium text-[#091E16]">
+        <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-5 text-xs sm:text-[15px] leading-relaxed text-slate-600">
+          <p className="font-semibold text-[#091E16]">
             {t("By accessing and using the J.F. Securities Company Pvt. Ltd. website, you agree to the following terms:")}
           </p>
 
-          <ul className="list-disc pl-5 space-y-2.5">
+          <ul className="list-disc pl-5 space-y-2">
             <li>
               {t("The information provided on this website is for general and informational purposes only and may be updated without prior notice.")}
             </li>
@@ -53,7 +53,7 @@ function TermsAndConditions() {
             </li>
           </ul>
 
-          <p className="pt-4 border-t border-slate-100 text-xs text-slate-500">
+          <p className="pt-4 border-t border-slate-100 text-[11px] sm:text-xs text-slate-500">
             {t("For any questions, please contact J.F. Securities Company Pvt. Ltd. through the contact details provided on this website.")}
           </p>
         </div>
