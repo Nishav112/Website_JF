@@ -52,8 +52,12 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
               className="hero-rise text-sm sm:text-base md:text-[17px] text-slate-600 leading-relaxed max-w-xl mb-6 sm:mb-8"
               style={{ animationDelay: "0.2s" }}
             >
-              {t("Stock Broker #7 · Member of the Nepal Stock Exchange.")}{" "}
-              {t("Licensed by the Securities Board of Nepal.")}
+              <div>
+                 {t("Member of the Nepal Stock Exchange.")}
+                  </div>
+              <div>
+                 {t("Licensed by the Securities Board of Nepal.")}
+              </div>
             </p>
 
             {/* Primary CTA and Secondary Actions */}
@@ -77,7 +81,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                 rel="noopener noreferrer"
                 className="btn-smooth inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#059669] hover:text-[#059669] text-[#091E16] font-semibold text-xs sm:text-[15px] whitespace-nowrap shadow-xs"
               >
-                <span>{t("Open CKYC account")}</span>
+                <span>{t("Open Demat account")}</span>
                 <ExternalLink size={14} className="opacity-70" />
               </a>
 

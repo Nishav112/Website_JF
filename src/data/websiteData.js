@@ -267,9 +267,9 @@ export const IMPORTANT_INFORMATION = [
       "Information and contact details of the Grievance Officer.",
     type: "officer",
     role: "Grievance Officer",
-    name: "Pradip Nepali",
-    phone: "9847773626",
-    email: "pradip@jfsecurities.com",
+    name: "Shishir Sharma",
+    phone: "9847773840",
+    email: "shishir.sharma@jfsecurities.com",
     message:
       "As the Grievance Officer, I am committed to ensuring that all client concerns, complaints, and feedback are handled fairly, transparently, and in a timely manner. We encourage our valued clients to share any grievances so that we can continuously improve our services and maintain the highest standards of customer satisfaction.",
   },
@@ -391,7 +391,7 @@ export const SERVICE_RATES = {
 export const SUPPORT_TEAM = [
   {
     title: "Trading",
-    email : "purnima.ranjitkar@jfsecurities.com",
+    email : "trading@jfsecurities.com",
     people: [{ name: "Purnima Ranjitkar", phone: "9861413588" }],
   },
   {
@@ -414,10 +414,7 @@ export const SUPPORT_TEAM = [
   },
   {
     title: "Customer Service Department",
-    emails: [
-    "yashodha.budhathoki@jfsecurities.com",
-    "muna.muktan@jfsecurities.com",
-  ],
+    email: "customercare@jfsecurities.com",
     people: [
       { name: "Yashodha Budhathoki", phone: "9847771097" },
       { name: "Muna Muktan", phone: "9847773155" },

@@ -37,7 +37,7 @@ function AccountOpening() {
               to="/downloads"
               className="btn-smooth inline-flex items-center px-3 sm:px-4 py-2 sm:py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs sm:text-sm whitespace-nowrap shadow-xs"
             >
-              {t("Download KYC & Demat forms")}
+              {t("Download Account Opening forms")}
             </Link>
           </div>
         </div>

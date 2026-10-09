@@ -205,7 +205,7 @@ export default function Navbar() {
                       rel="noopener noreferrer"
                       className="flex items-center justify-between px-3.5 py-2 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-50 hover:text-[#091E16] transition-colors"
                     >
-                      <span>{t("Terrorist Sanction List")}</span>
+                      <span>{t("Un Terrorist Sanction List")}</span>
                       <ArrowUpRight size={13} className="text-slate-400" />
                     </a>
                   )}

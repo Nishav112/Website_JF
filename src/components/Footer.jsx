@@ -114,7 +114,7 @@ function Footer() {
             fallbackRoute="/services"
           />
 
-          {/* Important Information */}
+          {/*Important Information */}
           <div>
             <div className="text-xs font-semibold text-white tracking-wide mb-3 sm:mb-4">
               {t("Important Information")}
@@ -149,7 +149,7 @@ function Footer() {
                 );
               })}
             </div>
-          </div>
+          </div> 
 
           {/* Contact */}
           <div>

@@ -25,18 +25,18 @@ export const NE = {
 
   /* ---------- Hero ---------- */
   "Your trusted partner in the capital market": "पुँजी बजारमा तपाईंको विश्वासिलो साझेदार",
-  "Trade with confidence.": "विश्वासका साथ कारोबार गर्नुहोस्।",
+  "Trade with confidence.": "ढुक्क साथ कारोबार गर्नुहोस्।",
   "Grow with us.": "हामीसँगै अगाडि बढ्नुहोस्।",
   "Stock Broker #7 · Member of the Nepal Stock Exchange.": "स्टक ब्रोकर नं. ७ · नेपाल स्टक एक्सचेन्जको सदस्य।",
   "Licensed by the Securities Board of Nepal.": "नेपाल धितोपत्र बोर्डबाट इजाजतप्राप्त।",
-  "Open trading account": "ट्रेडिङ खाता खोल्नुहोस्",
-  "Open CKYC account": "सीकेवाईसी खाता खोल्नुहोस्",
+  "Open trading account": "कारोबार खाता खोल्नुहोस्",
+  "Open Demat account": "डिम्याट खाता खोल्नुहोस्",
   "Learn more": "थप जान्नुहोस्",
 
   /* ---------- Account opening steps ---------- */
   "Get started": "सुरु गर्नुहोस्",
-  "Open your trading account in five simple steps": "पाँच सजिला चरणमा आफ्नो ट्रेडिङ खाता खोल्नुहोस्",
-  "Fill application form": "आवेदन फारम भर्नुहोस्",
+  "Open your trading account in five simple steps": "पाँच सजिला चरणमा आफ्नो कारोबार खाता खोल्नुहोस्",
+  "Fill application form": "ग्राहक परिचय फारम भर्नुहोस् ",
   "Complete the short online form with your basic details.": "आफ्ना आधारभूत विवरणसहित छोटो अनलाइन फारम पूरा गर्नुहोस्।",
   "Submit required documents": "आवश्यक कागजात बुझाउनुहोस्",
   "Upload your citizenship, photo , pan number ,bank details and electricity bill.": "आफ्नो नागरिकता, फोटो, प्यान नम्बर, बैंक विवरण र बिजुलीको बिल अपलोड गर्नुहोस्।",
@@ -47,13 +47,14 @@ export const NE = {
   "Start investing": "लगानी सुरु गर्नुहोस्",
   "Log in and place your first order on NEPSE.": "लगइन गरी नेप्सेमा आफ्नो पहिलो अर्डर राख्नुहोस्।",
   "Open account now": "अहिले नै खाता खोल्नुहोस्",
+  "Download Account Opening forms":"खाता खोल्ने फारामहरू डाउनलोड गर्नुहोस्",
 
   /* ---------- Platform showcase ---------- */
   "NEPSE Trade Management System: live market, NEPSE index, client collateral summary and TMS login": "नेप्से ट्रेड म्यानेजमेन्ट सिस्टम: लाइभ बजार, नेप्से सूचकाङ्क, ग्राहक धितो सारांश र टिएमएस लगइन",
 
   /* ---------- Why choose us ---------- */
   "Why choose us": "हामीलाई किन रोज्ने",
-  "Your trusted investment partner": "तपाईंको विश्वासिलो लगानी साझेदार",
+  "Your trusted investment partner": "तपाईंको भरपर्दो लगानी साथी",
   "At JF Securities, we focus on providing reliable brokerage services, professional support, and convenient access to Nepal's capital market.": "जेएफ सेक्युरिटिजमा हामी भरपर्दो ब्रोकरेज सेवा, व्यावसायिक सहयोग र नेपालको पुँजी बजारमा सहज पहुँच उपलब्ध गराउनमा केन्द्रित छौं।",
   "Trusted & regulated": "विश्वसनीय र नियमन गरिएको",
   "SEBON licensed brokerage services with a focus on transparent and responsible operations.": "पारदर्शी र जिम्मेवार सञ्चालनमा जोड दिँदै सेबोनबाट इजाजतप्राप्त ब्रोकरेज सेवा।",
@@ -67,7 +68,7 @@ export const NE = {
   "NEPSE Trading Services": "नेप्से कारोबार सेवा",
   "Client Support": "ग्राहक सहयोग",
   "Professional Assistance": "व्यावसायिक सहायता",
-  "Trading & Margin Services": "कारोबार तथा मार्जिन सेवा",
+  "Trading & Margin Services": "कारोबार र मार्जिन सेवा",
 
   /* ---------- FAQ ---------- */
   "FAQs": "बारम्बार सोधिने प्रश्नहरू",
@@ -132,8 +133,8 @@ export const NE = {
   /* ---------- About page ---------- */
   "Who We Are": "हामी को हौं",
   "Company Overview": "कम्पनी परिचय",
-  "J.F. Securities Company Limited is a Nepal-based stock brokerage company providing securities trading and related capital-market services. We are committed to delivering reliable, transparent, and accessible services that enable our clients to participate confidently in Nepal's capital market.": "जे.एफ. सेक्युरिटिज कम्पनी लिमिटेड नेपालमा आधारित स्टक ब्रोकरेज कम्पनी हो, जसले धितोपत्र कारोबार तथा सम्बन्धित पुँजी बजार सेवाहरू उपलब्ध गराउँछ। हामी हाम्रा ग्राहकहरूलाई नेपालको पुँजी बजारमा विश्वासका साथ सहभागी हुन सक्षम बनाउने भरपर्दो, पारदर्शी र सुलभ सेवा प्रदान गर्न प्रतिबद्ध छौं।",
-  "With a focus on professional service, technology, and responsible market practices, we strive to make the investment and trading experience more convenient and accessible for our clients.": "व्यावसायिक सेवा, प्रविधि र जिम्मेवार बजार अभ्यासमा केन्द्रित रहँदै, हामी ग्राहकहरूका लागि लगानी तथा कारोबार अनुभवलाई थप सुविधाजनक र सुलभ बनाउन प्रयासरत छौं।",
+  "J.F. Securities Company Limited is a Nepal-based stock brokerage company providing securities trading and related capital-market services. We are committed to delivering reliable, transparent, and accessible services that enable our clients to participate confidently in Nepal's capital market.": "नेपाल धितोपत्र बोर्डबाट धितोपत्र दलाल सेवाका लागि अनुमति प्राप्त हामी जे.एफ. सेक्युरिटिज कम्पनी प्राइभेट लिमिटेड नेपाल स्टक एक्सचेन्जको कारोबार सदस्य कम्पनी हौँ। ग्राहकहरुलाई भरपर्दो , पारदर्शी र सुलभ सेवा प्रदान गर्ने कटिबद्ध हौँ।",
+  "With a focus on professional service, technology, and responsible market practices, we strive to make the investment and trading experience more convenient and accessible for our clients.": "",
   "Our Direction": "हाम्रो दिशा",
   "Vision": "दूरदृष्टि",
   "To be a trusted and technology-driven securities service provider, making Nepal's capital market more accessible, transparent, and convenient.": "नेपालको पुँजी बजारलाई थप सुलभ, पारदर्शी र सुविधाजनक बनाउँदै विश्वसनीय तथा प्रविधिमुखी धितोपत्र सेवा प्रदायक बन्ने।",
@@ -197,7 +198,7 @@ export const NE = {
   "Pradip Nepali": "प्रदीप नेपाली",
   "Yashodha Budhathoki": "यशोधा बुढाथोकी",
   "Muna Muktan": "मुना मुक्तान",
-  "Nishav Rayamajhi": "निशाव रायमाझी",
+  "Nishav Rayamajhi": "निशभ रायमाझी",
   "Nikita Basnet": "निकिता बस्नेत",
   "Nirmala Oli": "निर्मला ओली",
   "Sabin Raj Dangi": "सबिन राज डाँगी",
@@ -274,7 +275,7 @@ export const NE = {
   "Scan this QR code to make payment. Verify the recipient details before confirming the transaction.": "भुक्तानी गर्न यो क्यूआर कोड स्क्यान गर्नुहोस्। कारोबार पुष्टि गर्नुअघि प्राप्तकर्ताको विवरण जाँच गर्नुहोस्।",
 
   /* ---------- Service rates page ---------- */
-  "Back to Services": "सेवाहरूमा फर्कनुहोस्",
+  "Back to Services": "फर्कनुहोस्",
   "Brokerage & Service Charges": "ब्रोकरेज तथा सेवा शुल्क",
   "View the applicable brokerage rates, service charges, capital gains tax information and office hours of JF Securities.": "जेएफ सेक्युरिटिजको लागू हुने ब्रोकरेज दर, सेवा शुल्क, पुँजीगत लाभ कर सम्बन्धी जानकारी र कार्यालय समय हेर्नुहोस्।",
   "Minimum Charge": "न्यूनतम शुल्क",
