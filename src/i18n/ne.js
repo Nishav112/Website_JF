@@ -26,7 +26,7 @@ export const NE = {
   /* ---------- Hero ---------- */
   "Your trusted partner in the capital market": "पुँजी बजारमा तपाईंको विश्वासिलो साझेदार",
   "Trade with confidence.": "ढुक्क साथ कारोबार गर्नुहोस्।",
-  "Grow with us.": "हामीसँगै अगाडि बढ्नुहोस्।",
+  "Grow with us.": "हामीसँगै प्रगति गर्नुहोस्।",
   "Stock Broker #7 · Member of the Nepal Stock Exchange.": "स्टक ब्रोकर नं. ७ · नेपाल स्टक एक्सचेन्जको सदस्य।",
   "Licensed by the Securities Board of Nepal.": "नेपाल धितोपत्र बोर्डबाट इजाजतप्राप्त।",
   "Open trading account": "कारोबार खाता खोल्नुहोस्",
