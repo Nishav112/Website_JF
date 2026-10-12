@@ -198,7 +198,7 @@ export const KYC_DOWNLOADS = [
       },
       {
         label : "DRF Form",
-        href: "##",
+        href: "/forms/DRF.pdf",
       },
     ],
   },
