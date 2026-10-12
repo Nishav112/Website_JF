@@ -103,6 +103,7 @@ function ShareCalculator() {
   const buyPrice = Math.max(0, Number(purchasePrice) || 0);
   const sellPrice = Math.max(0, Number(sellingPrice) || 0);
 
+ 
   const buyAmount = qty * buyPrice;
   const sellAmount = qty * sellPrice;
 
@@ -121,8 +122,12 @@ function ShareCalculator() {
   const buyDpCharge = 0;
   const sellDpCharge = sellAmount > 0 ? DP_CHARGE : 0;
 
+  // When selling, use the entered price directly if it is already WACC.
+  // Otherwise, calculate the purchase cost including modeled buy charges.
   const totalBuyCost =
-    buyAmount + buyCommission + buySebon + buyDpCharge;
+    transactionType === "sell" && waccPrice
+      ? buyAmount
+      : buyAmount + buyCommission + buySebon + buyDpCharge;
 
   const costPerShare = qty > 0 ? totalBuyCost / qty : 0;
 
