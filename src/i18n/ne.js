@@ -9,6 +9,7 @@ export const NE = {
   "Payment": "भुक्तानी",
   "Support": "सहयोग",
   "About Us": "हाम्रो बारेमा",
+  "More":"थप जानकारी",
   "Login": "लगइन",
   "Live Market": "लाइभ बजार",
   "Live Market ↗": "लाइभ बजार ↗",
@@ -18,7 +19,7 @@ export const NE = {
   "News & Notices": "समाचार तथा सूचना",
   "Brokerage & Charges": "ब्रोकरेज तथा शुल्क",
   "Targeted Sanction List ↗": "लक्षित प्रतिबन्ध सूची ↗",
-  "Terrorist Sanction List ↗": "आतंकवादी प्रतिबन्ध सूची ↗",
+  "Un Terrorist Sanction List ↗": "आतंकवादी प्रतिबन्ध सूची ↗",
   "Open menu": "मेनु खोल्नुहोस्",
   "Open mobile menu": "मोबाइल मेनु खोल्नुहोस्",
   "Language": "भाषा",
@@ -28,10 +29,17 @@ export const NE = {
   "Trade with confidence.": "ढुक्क साथ कारोबार गर्नुहोस्।",
   "Grow with us.": "हामीसँगै प्रगति गर्नुहोस्।",
   "Stock Broker #7 · Member of the Nepal Stock Exchange.": "स्टक ब्रोकर नं. ७ · नेपाल स्टक एक्सचेन्जको सदस्य।",
+  "Member of the Nepal Stock Exchange.":"नेपाल स्टक एक्सचेन्जको सदस्य",
   "Licensed by the Securities Board of Nepal.": "नेपाल धितोपत्र बोर्डबाट इजाजतप्राप्त।",
   "Open trading account": "कारोबार खाता खोल्नुहोस्",
   "Open Demat account": "डिम्याट खाता खोल्नुहोस्",
   "Learn more": "थप जान्नुहोस्",
+  "Broker License":"ब्रोकर लाइसेन्स",
+  "Depository Participant":"डिपोजिटरी सहभागी",
+  "Regulator":"नियामक",
+  "NEPSE #07":"नेप्से #०७",
+  "13023300":"१३०२३३००",
+  "SEBON & CDSC":"सेबोन र सीडीएस",
 
   /* ---------- Account opening steps ---------- */
   "Get started": "सुरु गर्नुहोस्",
@@ -49,9 +57,11 @@ export const NE = {
   "Open account now": "अहिले नै खाता खोल्नुहोस्",
   "Download Account Opening forms":"खाता खोल्ने फारामहरू डाउनलोड गर्नुहोस्",
 
-  /* ---------- Platform showcase ---------- */
-  "NEPSE Trade Management System: live market, NEPSE index, client collateral summary and TMS login": "नेप्से ट्रेड म्यानेजमेन्ट सिस्टम: लाइभ बजार, नेप्से सूचकाङ्क, ग्राहक धितो सारांश र टिएमएस लगइन",
+  /* ---------- Platform showcase ---------- */  
 
+"NEPSE Trade Management System (TMS #07)": "नेप्से ट्रेड म्यानेजमेन्ट सिस्टम (टिएमएस #०७)",
+"Direct digital access to Nepal's stock exchange":"नेपालको स्टक एक्सचेन्जमा प्रत्यक्ष डिजिटल पहुँच",
+"Launch TMS Portal":"टिएमएस  पोर्टल सुरु गर्नुहोस्",
   /* ---------- Why choose us ---------- */
   "Why choose us": "हामीलाई किन रोज्ने",
   "Your trusted investment partner": "तपाईंको भरपर्दो लगानी साथी",
@@ -237,6 +247,61 @@ export const NE = {
   "Fund your account": "आफ्नो खातामा रकम जम्मा गर्नुहोस्",
   "Choose any of the payment options below to deposit funds into your trading account. Please mention your Client Code in the remarks so we can credit your account quickly.": "आफ्नो ट्रेडिङ खातामा रकम जम्मा गर्न तलका कुनै पनि भुक्तानी विकल्प रोज्नुहोस्। हामीले तपाईंको खातामा छिटो रकम जम्मा गर्न सकौं भनी कृपया टिप्पणीमा आफ्नो ग्राहक कोड उल्लेख गर्नुहोस्।",
   "Payment Instructions": "भुक्तानी निर्देशन",
+  "Recommended Payment Method":"सिफारिस गरिएको भुक्तानी विधि",
+  "Pay Through TMS":"टिएमएस मार्फत भुक्तानी गर्नुहोस्",
+  "Settle your trading payments directly through TMS":"टिएमएस मार्फत आफ्नो व्यापारिक भुक्तानीहरू सिधै मिलाउनुहोस्",
+  "Use your JF Securities TMS account to check outstanding payments and settle your trading transactions through the available payment options.":"बकाया भुक्तानीहरू जाँच गर्न र उपलब्ध भुक्तानी विकल्पहरू मार्फत आफ्नो व्यापारिक लेनदेनहरू व्यवस्थित गर्न आफ्नो जे.एफ. सेक्युरिटिज टिएमएस खाता प्रयोग गर्नुहोस्।",
+  "Alternative Payment Methods": "वैकल्पिक भुक्तानी विधिहरू",
+  "Bank Transfer & QR Payment": "बैंक ट्रान्सफर तथा क्यूआर भुक्तानी",
+  "You can also deposit funds using the bank details or QR code below.": "तल दिइएका बैंक विवरण वा क्यूआर कोड प्रयोग गरेर पनि रकम जम्मा गर्न सक्नुहुन्छ।",
+
+  "Settle your trading payments directly through TMS": "टिएमएस मार्फत आफ्नो कारोबारको भुक्तानी सिधै मिलाउनुहोस्",
+  "Use your JF Securities TMS account to check outstanding payments and settle your trading transactions through the available payment options.": "बाँकी भुक्तानी जाँच गर्न र उपलब्ध भुक्तानी विकल्पहरूमार्फत आफ्नो कारोबारको भुक्तानी मिलाउन जे.एफ. सेक्युरिटिज को टिएमएस खाता प्रयोग गर्नुहोस्।",
+
+  "Log in to your **JF Securities TMS account**.": "आफ्नो **जे.एफ. सेक्युरिटिज टिएमएस खातामा** लगइन गर्नुहोस्।",
+  "Go to **Fund Management → Fund Settlement**.": "**कोष व्यवस्थापन → फन्ड सेटलमेन्टमा जानुहोस्।",
+  "Open **Buy Information** and check your payment due.": "**खरीद जानकारी खोल्नुहोस् र आफ्नो भुक्तानी बाँकी जाँच गर्नुहोस्।",
+  "Select the outstanding transaction and click **Make Settlement**.": "बकाया कारोबार छान्नुहोस् र मेक सेटलमेन्टमा क्लिक गर्नुहोस्।",
+  "Click **Proceed with Payment** and select an available payment method.": "**भुक्तानीको साथ अगाडि बढ्नुहोस् क्लिक गर्नुहोस् र उपलब्ध भुक्तानी विधि चयन गर्नुहोस्।।",
+
+  "Ready to make a payment?": "भुक्तानी गर्न तयार हुनुहुन्छ?",
+  "Access your trading account to review and settle your outstanding payments.": "बाँकी भुक्तानी जाँच गर्न र मिलाउन आफ्नो कारोबार खातामा जानुहोस्।",
+  "You will be redirected to the TMS login page.": "तपाईंलाई टिएमएस लगइन पृष्ठमा लगिनेछ।",
+
+  "Official Settlement Bank": "आधिकारिक भुक्तानी बैंक",
+  "Account Name": "खातावालाको नाम",
+  "Account Number": "खाता नम्बर",
+  "Copied": "प्रतिलिपि गरियो",
+  "Copy": "प्रतिलिपि गर्नुहोस्",
+  "Copy Number": "नम्बर प्रतिलिपि गर्नुहोस्",
+  "Branch": "शाखा",
+  "Receipt Verification": "भुक्तानी रसिद प्रमाणीकरण",
+
+  "Instant QR Deposit": "क्यूआरमार्फत तुरुन्त रकम जम्मा",
+  "Payment Instructions": "भुक्तानीसम्बन्धी निर्देशन",
+  "Other ways to make your payment": "भुक्तानी गर्ने अन्य तरिकाहरू",
+
+  "Visit eSewa": "इसेवामा जानुहोस्",
+  "Visit Khalti": "खल्तीमा जानुहोस्",
+  "Visit connectIPS": "connectIPS मा जानुहोस्",
+
+  "• Open eSewa.": "• इसेवा खोल्नुहोस्।",
+  "• Login to your eSewa account.": "• आफ्नो इसेवा खातामा लगइन गर्नुहोस्।",
+  "• Search or scroll down to **Stock Broker Payment**.": "• **Stock Broker Payment** खोज्नुहोस् वा तल स्क्रोल गर्नुहोस्।",
+  "• Click on **J.F. Securities Company Pvt. Ltd.**": "• **J.F. Securities Company Pvt. Ltd.** मा क्लिक गर्नुहोस्।",
+  "• Enter your **Client Code and DOB**.": "• आफ्नो **क्लाइन्ट कोड र जन्ममिति (DOB)** प्रविष्ट गर्नुहोस्।",
+  "• Proceed with the payment.": "• भुक्तानी प्रक्रिया अगाडि बढाउनुहोस्।",
+
+  "• Open Khalti.": "• खल्ती खोल्नुहोस्।",
+  "• Login to your Khalti account.": "• आफ्नो खल्ती खातामा लगइन गर्नुहोस्।",
+
+  "• Open connectIPS.": "• connectIPS खोल्नुहोस्।",
+  "• Go to **Financial Institution**.": "• **Financial Institution** मा जानुहोस्।",
+  "• Select **Capital Market**.": "• **Capital Market** छान्नुहोस्।",
+  "• Select **Broker Payment**.": "• **Broker Payment** छान्नुहोस्।",
+  "• Fill in the transaction form.": "• कारोबार फाराम भर्नुहोस्।",
+  "• Select Broker as **No. 7 — J.F. Securities Co. Pvt. Ltd.**": "• ब्रोकरको रूपमा **No. 7 — J.F. Securities Co. Pvt. Ltd.** छान्नुहोस्।",
+
   "How to make your payment": "भुक्तानी कसरी गर्ने",
   "• Open eSewa.": "• इसेवा खोल्नुहोस्।",
   "• Login to your eSewa account.": "• आफ्नो इसेवा खातामा लगइन गर्नुहोस्।",
@@ -275,59 +340,138 @@ export const NE = {
   "Scan this QR code to make payment. Verify the recipient details before confirming the transaction.": "भुक्तानी गर्न यो क्यूआर कोड स्क्यान गर्नुहोस्। कारोबार पुष्टि गर्नुअघि प्राप्तकर्ताको विवरण जाँच गर्नुहोस्।",
 
   /* ---------- Service rates page ---------- */
-    "Back to Services": "सेवाहरूमा फर्कनुहोस्",
+
+  "Back to Services": "सेवाहरूमा फर्कनुहोस्",
+  "Service Rates": "सेवा शुल्क",
   "Brokerage & Service Charges": "ब्रोकरेज तथा सेवा शुल्क",
-  "View applicable share trading charges, DEMAT and Mero Share fees, and capital gains tax information.": "सेयर कारोबार शुल्क, डिम्याट तथा मेरो सेयर शुल्क र पुँजीगत लाभकरसम्बन्धी जानकारी हेर्नुहोस्।",
-  "Brokerage rates and transaction fees applicable to share trading.": "सेयर कारोबारमा लागू हुने ब्रोकरेज दर तथा कारोबार शुल्क।",
-  "Account opening, maintenance and other depository service fees.": "खाता खोल्ने, मर्मत गर्ने तथा अन्य निक्षेप सेवाका शुल्कहरू।",
-  "Capital gains tax rates by investor category and holding period.": "लगानीकर्ताको प्रकार र सेयर राखेको अवधिअनुसार पुँजीगत लाभकरका दरहरू।",
+  "View applicable share trading charges, DEMAT and Mero Share fees, and capital gains tax information.":
+    "सेयर कारोबार शुल्क, डिम्याट तथा मेरो सेयर शुल्क र पुँजीगत लाभकरसम्बन्धी जानकारी हेर्नुहोस्।",
+
+  /* ---------- Rate card headings and descriptions ---------- */
+
+  "Share Trading Charges": "सेयर कारोबार शुल्क",
+  "Brokerage rates and transaction fees applicable to share trading.":
+    "सेयर कारोबारमा लागू हुने ब्रोकरेज दर तथा कारोबार शुल्क।",
+
+  "DEMAT and Mero Share Charges": "डिम्याट तथा मेरो सेयर शुल्क",
+  "Account opening, maintenance and other depository service fees.":
+    "खाता खोल्ने, मर्मत गर्ने तथा अन्य निक्षेप सेवाका शुल्कहरू।",
+
+  "Capital Gains Tax": "पुँजीगत लाभकर",
+  "Capital gains tax rates by investor category and holding period.":
+    "लगानीकर्ताको प्रकार र सेयर राखेको अवधिअनुसार पुँजीगत लाभकरका दरहरू।",
+
+  /* ---------- Rate card table headings ---------- */
 
   "Charge": "शुल्क",
   "Rate": "दर",
   "Rate / Amount": "दर / रकम",
   "When Charged": "शुल्क लाग्ने समय",
   "Investor Category": "लगानीकर्ताको वर्ग",
+  "Holding Period": "सेयर राखेको अवधि",
   "Tax on Taxable Profit": "करयोग्य नाफामा कर",
 
-  "Brokerage — up to Rs. 50,000": "ब्रोकरेज — रु. ५०,००० सम्म",
-  "Brokerage — Rs. 50,001–5,00,000": "ब्रोकरेज — रु. ५०,००१–५,००,०००",
-  "Brokerage — Rs. 5,00,001–20,00,000": "ब्रोकरेज — रु. ५,००,००१–२०,००,०००",
-  "Brokerage — Rs. 20,00,001–1,00,00,000": "ब्रोकरेज — रु. २०,००,००१–१,००,००,०००",
-  "Brokerage — above Rs. 1,00,00,000": "ब्रोकरेज — रु. १,००,००,००० भन्दा माथि",
+  /* ---------- Share trading charges ---------- */
+
+  "Brokerage — up to Rs. 50,000":
+    "ब्रोकरेज — रु. ५०,००० सम्म",
+  "Brokerage — Rs. 50,001–5,00,000":
+    "ब्रोकरेज — रु. ५०,००१–५,००,०००",
+  "Brokerage — Rs. 5,00,001–20,00,000":
+    "ब्रोकरेज — रु. ५,००,००१–२०,००,०००",
+  "Brokerage — Rs. 20,00,001–1,00,00,000":
+    "ब्रोकरेज — रु. २०,००,००१–१,००,००,०००",
+  "Brokerage — above Rs. 1,00,00,000":
+    "ब्रोकरेज — रु. १,००,००,००० भन्दा बढी",
+
   "SEBON transaction fee": "सेबोन कारोबार शुल्क",
   "DP transaction charge": "डीपी कारोबार शुल्क",
   "Buy and sell": "खरिद तथा बिक्री",
+  "Per stock per transfer day": "प्रति सेयर, प्रति हस्तान्तरण दिन",
   "Per transaction": "प्रति कारोबार",
   "Per request": "प्रति अनुरोध",
+  "One time": "एक पटक मात्र",
+  "Annual": "वार्षिक",
+  "Per stock": "प्रति सेयर",
   "Rs. 50 per stock": "प्रति सेयर रु. ५०",
 
-  "Estimate your transaction charges and receivable amount.": "आफ्नो कारोबार शुल्क र प्राप्त हुने रकम अनुमान गर्नुहोस्।",
+  /*----------DEMAT and Mero Share Charges -------------*/
+  "DEMAT account opening":"डिम्याट खाता खोल्ने",
+  "DEMAT account maintenance (AMC)":"डिम्याट खाता रखरखाव (एएमसी)",
+  "Mero Share registration":"मेरो शेयर दर्ता",
+  "Mero Share renewal":"मेरो शेयर नवीकरण",
+  "Share pledge":"साझा प्रतिज्ञा",
+  "Account freeze":"खाता फ्रिज",
+  "Rematerialization":"पुन: भौतिकीकरण",
+
+  /* ---------- Capital gains tax table ---------- */
+
+  "Resident individual": "निवासी प्राकृतिक व्यक्ति",
+  "Resident entity": "निवासी संस्था",
+  "Other / non-resident investor": "अन्य / अनिवासी लगानीकर्ता",
+  "Listed shares": "सूचीकृत सेयर",
+  "Generally 10%": "सामान्यतया १०%",
+  "Generally 25%": "सामान्यतया २५%",
+  "365 days or less": "३६५ दिन वा सोभन्दा कम",
+  "More than 365 days": "३६५ दिनभन्दा बढी",
+
+  /* ---------- Share calculator ---------- */
+
+  "Share Calculator": "सेयर क्याल्कुलेटर",
+  "Estimate your transaction charges and receivable amount.":
+    "आफ्नो कारोबार शुल्क र प्राप्त हुने रकम अनुमान गर्नुहोस्।",
+
   "Transaction Type": "कारोबारको प्रकार",
+  "Buy": "खरिद",
+  "Sell": "बिक्री",
   "Share Quantity": "सेयर संख्या",
   "Number Only": "अङ्क मात्र",
   "Purchase Price (Rs.)": "खरिद मूल्य (रु.)",
+  "Selling Price (Rs.)": "बिक्री मूल्य (रु.)",
   "Is WACC Price?": "के यो WACC मूल्य हो?",
+  "Investor Type": "लगानीकर्ताको प्रकार",
   "Individual": "व्यक्तिगत",
   "Institutional": "संस्थागत",
+  "Capital Gains Tax": "पुँजीगत लाभकर",
+
+  "Calculate": "गणना गर्नुहोस्",
   "Clear": "खाली गर्नुहोस्",
-  "Please enter a valid share quantity.": "कृपया सेयरको सही संख्या प्रविष्ट गर्नुहोस्।",
-  "Please enter a valid purchase price.": "कृपया खरिद मूल्य सही रूपमा प्रविष्ट गर्नुहोस्।",
-  "Please enter a valid selling price.": "कृपया बिक्री मूल्य सही रूपमा प्रविष्ट गर्नुहोस्।",
+
+  /* ---------- Calculator validation messages ---------- */
+
+  "Please enter a valid share quantity.":
+    "कृपया सेयरको सही संख्या प्रविष्ट गर्नुहोस्।",
+  "Please enter a valid purchase price.":
+    "कृपया खरिद मूल्य सही रूपमा प्रविष्ट गर्नुहोस्।",
+  "Please enter a valid selling price.":
+    "कृपया बिक्री मूल्य सही रूपमा प्रविष्ट गर्नुहोस्।",
+
+  /* ---------- Calculator results ---------- */
+
   "Calculation Details": "गणनाको विवरण",
   "Estimated": "अनुमानित",
   "Total Amount": "कुल रकम",
   "Commission": "कमिसन",
+  "SEBON Fee": "सेबोन शुल्क",
+  "DP Charge": "डीपी शुल्क",
   "Total Amount Payable": "तिर्नुपर्ने कुल रकम",
   "Cost Price Per Share": "प्रति सेयर लागत मूल्य",
   "Total Amount Receivable Before Tax": "करअघिको प्राप्त हुने कुल रकम",
   "Net Amount Receivable": "प्राप्त हुने खुद रकम",
   "Profit / Loss": "नाफा / घाटा",
   "Estimated Profit / Loss": "अनुमानित नाफा / घाटा",
-  "Estimates only. Actual charges, WACC adjustments and taxes may differ according to applicable regulations and your broker's contract note.": "यो केवल अनुमान हो। वास्तविक शुल्क, WACC समायोजन र कर लागू नियम तथा ब्रोकरको कन्ट्र्याक्ट नोटअनुसार फरक हुन सक्छ।",
+
+  "Estimates only. Actual charges, WACC adjustments and taxes may differ according to applicable regulations and your broker's contract note.":
+    "यो केवल अनुमान हो। वास्तविक शुल्क, WACC समायोजन र कर लागू नियम तथा ब्रोकरको कारोबार विवरणअनुसार फरक हुन सक्छ।",
+
+  /* ---------- Additional information ---------- */
 
   "Hide Share Calculator": "सेयर क्याल्कुलेटर लुकाउनुहोस्",
   "Important Information": "महत्त्वपूर्ण जानकारी",
-  "* Capital gains tax rates and other charges are presented as supplied. Please confirm the applicable rates with JF Securities and the relevant authorities before making a transaction.": "* पुँजीगत लाभकरका दर र अन्य शुल्क उपलब्ध गराइएअनुसार प्रस्तुत गरिएका छन्। कारोबार गर्नुअघि जेएफ सेक्युरिटिज तथा सम्बन्धित निकायसँग लागू दरहरू पुष्टि गर्नुहोस्।",
+
+  "* Capital gains tax rates and other charges are presented as supplied. Please confirm the applicable rates with JF Securities and the relevant authorities before making a transaction.":
+    "* पुँजीगत लाभकरका दर र अन्य शुल्क उपलब्ध गराइएअनुसार प्रस्तुत गरिएका छन्। कारोबार गर्नुअघि जेएफ सेक्युरिटिज तथा सम्बन्धित निकायसँग लागू दरहरू पुष्टि गर्नुहोस्।",
+
 
 
 

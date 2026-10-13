@@ -511,7 +511,9 @@ function ShareCalculator() {
                         {t("Investor Type")}
                       </td>
                       <td className="break-words px-3 py-3 text-right font-semibold text-slate-800 sm:px-4">
-                        {calculated ? t(investorType) : "—"}
+                        {calculated
+  ? t(investorType === "individual" ? "Individual" : "Institutional")
+  : "—"}
                       </td>
                     </tr>
                   )}
@@ -579,7 +581,7 @@ function ShareCalculator() {
                     netProfit < 0 ? "text-red-700" : "text-[#059669]"
                   }`}
                 >
-                  {formatNPR(netProfit)}
+                  {ta(formatNPR(netProfit))}
                 </p>
               </div>
             )}

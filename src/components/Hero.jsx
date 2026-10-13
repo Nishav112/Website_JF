@@ -91,6 +91,28 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                 {t("Learn more")}
               </Link>
             </div>
+            
+{/* TMS Portal Information */}
+<div className="mt-6">
+  <h2 className="text-lg font-semibold text-[#091E16]">
+    {t("NEPSE Trade Management System (TMS #07)")}
+  </h2>
+
+  <p className="mt-1 text-sm text-slate-600">
+    {t("Direct digital access to Nepal's stock exchange")}
+  </p>
+
+  <a
+    href="https://tms07.nepsetms.com.np/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#059669] hover:text-[#047857]"
+  >
+    {t("Launch TMS Portal")}
+    <ExternalLink size={14} />
+  </a>
+</div>
+
 
             {/* Clean unboxed regulatory metadata strip */}
             <div

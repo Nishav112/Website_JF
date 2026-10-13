@@ -184,14 +184,15 @@ export default function Navbar() {
                   >
                     {t("News & Notices")}
                   </NavLink>
-                               
-                  <NavLink
-                     to="/service-rates"
-                     onClick={() => setMoreOpen(false)}
-                     className="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-[#059669] transition-colors"
-                  >
-                        Brokerage &amp; Charges
-                        </NavLink>
+                              
+<NavLink
+  to="/service-rates"
+  onClick={() => setMoreOpen(false)}
+  className="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-[#059669] transition-colors"
+>
+  {t("Brokerage & Charges")}
+</NavLink>
+
 
 
                   <div className="my-1.5 border-t border-slate-100" />
@@ -215,7 +216,7 @@ export default function Navbar() {
                       rel="noopener noreferrer"
                       className="flex items-center justify-between px-3.5 py-2 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-50 hover:text-[#091E16] transition-colors"
                     >
-                      <span>{t("Un Terrorist Sanction List")}</span>
+                      <span>{t("UN Terrorist Sanction List")}</span>
                       <ArrowUpRight size={13} className="text-slate-400" />
                     </a>
                   )}
