@@ -37,7 +37,6 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
             >
               <span>{t("Your trusted partner in the capital market")}</span>
               <span aria-hidden="true" className="text-slate-300">·</span>
-              <span className="text-slate-500 font-medium">NEPSE Member #7</span>
             </div>
 
             <h1
@@ -105,7 +104,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                 </div>
               </div>
               <div>
-                <div className="text-[11px] sm:text-xs text-slate-500">{t("DP ID")}</div>
+                <div className="text-[11px] sm:text-xs text-slate-500">{t("Depository Participant")}</div>
                 <div className="text-xs sm:text-base font-bold text-[#091E16] mono-num mt-0.5">
                   13023300
                 </div>
@@ -113,7 +112,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
               <div>
                 <div className="text-[11px] sm:text-xs text-slate-500">{t("Regulator")}</div>
                 <div className="text-xs sm:text-base font-bold text-[#091E16] mt-0.5">
-                  SEBON & CDSCL
+                  SEBON & CDSC
                 </div>
               </div>
             </div>

@@ -71,7 +71,6 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", to: "/", icon: Home },
     { label: "Services", to: "/services", icon: Briefcase },
-    { label: "Service Rates", to: "/service-rates", icon: Calculator },
     { label: "Payment", to: "/payment", icon: CreditCard },
     { label: "Support", to: "/contact", icon: PhoneCall },
   ];
@@ -80,6 +79,8 @@ export default function Navbar() {
     { label: "About Us", to: "/about", icon: Building2 },
     { label: "Downloads", to: "/downloads", icon: FileDown },
     { label: "News & Notices", to: "/news", icon: Bell },
+    { label: "Service Rates", to: "/service-rates", icon: Calculator },
+
   ];
 
   const targetedSanction = IMPORTANT_INFORMATION.find(
@@ -151,7 +152,7 @@ export default function Navbar() {
                   moreOpen ? "text-[#059669]" : "text-slate-700 hover:text-[#059669]"
                 }`}
               >
-                <span>{t("Resources")}</span>
+                <span>{t("More")}</span>
                 <ChevronDown
                   size={15}
                   className={`transition-transform duration-200 ${
@@ -183,6 +184,15 @@ export default function Navbar() {
                   >
                     {t("News & Notices")}
                   </NavLink>
+                               
+                  <NavLink
+                     to="/service-rates"
+                     onClick={() => setMoreOpen(false)}
+                     className="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-[#059669] transition-colors"
+                  >
+                        Brokerage &amp; Charges
+                        </NavLink>
+
 
                   <div className="my-1.5 border-t border-slate-100" />
 
