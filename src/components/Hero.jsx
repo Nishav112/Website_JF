@@ -120,7 +120,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
               style={{ animationDelay: "0.36s" }}
             >
               <div>
-                <div className="text-[11px] sm:text-xs text-slate-500">{t("Broker License")}</div>
+                <div className="text-[11px] sm:text-xs text-slate-500">{t("Member Broker")}</div>
                 <div className="text-xs sm:text-base font-bold text-[#091E16] mono-num mt-0.5">
                   NEPSE #07
                 </div>
@@ -134,7 +134,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
               <div>
                 <div className="text-[11px] sm:text-xs text-slate-500">{t("Regulator")}</div>
                 <div className="text-xs sm:text-base font-bold text-[#091E16] mt-0.5">
-                  SEBON & CDSC
+                  SEBON
                 </div>
               </div>
             </div>
