@@ -82,3 +82,17 @@ body {
 .ticker-track:hover {
   animation-play-state: paused;
 }
+
+/*Improve card visibility across the website */
+:where(div, section, article)[class*="rounded-"][class*="border"][class*="bg-white"],
+:where(div, section, article)[class*="rounded-"][class*="border"][class*="bg-gradient"] {
+  border-color: #D5DED9 !important;
+  border-width: 1px;
+  box-shadow: 0 2px 8px rgba(9, 30, 22, 0.05);
+}
+
+/*Make internal card separators slightly clearer */
+:where(div, section, article)[class*="rounded-"][class*="border"][class*="bg=white"] [class*="border-b"],
+:where(div, section, article)[class*="rounded-"][class*="border"][class*="bg-gradient"] [class*="border-b"] {
+  border-color: #E3E8E5;
+}

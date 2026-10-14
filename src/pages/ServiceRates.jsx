@@ -42,14 +42,34 @@ const labelClass =
 const buttonClass =
   "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#059669] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#047857] focus:outline-none focus:ring-2 focus:ring-emerald-500/30";
 
+
 const shareTradingRows = [
   ["Brokerage — up to Rs. 50,000", "0.36%", "Buy and sell"],
   ["Brokerage — Rs. 50,001–5,00,000", "0.33%", "Buy and sell"],
   ["Brokerage — Rs. 5,00,001–20,00,000", "0.31%", "Buy and sell"],
   ["Brokerage — Rs. 20,00,001–1,00,00,000", "0.27%", "Buy and sell"],
   ["Brokerage — above Rs. 1,00,00,000", "0.24%", "Buy and sell"],
-  ["SEBON transaction fee", "0.015%", "Buy and sell"],
-  ["DP transaction charge", "Rs. 25", "Per stock per transfer day"],
+];
+
+const bondRows = [
+  ["Up to Rs. 5,00,000", "0.10% or Rs. 10, whichever is higher", "Per transaction"],
+  ["Rs. 5,00,001–50,00,000", "0.05%", "Per transaction"],
+  ["Above Rs. 50,00,000", "0.02%", "Per transaction"],
+  ["Corporate debentures — SEBON fee", "0.010%", "Per transaction"],
+  ["Government / eligible bonds — SEBON fee", "0.005%", "Per transaction"],
+];
+
+const mutualFundRows = [
+  ["Up to Rs. 5,00,000", "0.15% or Rs. 10, whichever is higher", "Per transaction"],
+  ["Rs. 5,00,001–50,00,000", "0.12%", "Per transaction"],
+  ["Above Rs. 50,00,000", "0.10%", "Per transaction"],
+  ["SEBON transaction fee", "0.010%", "Per transaction"],
+];
+
+const governmentSecuritiesRows = [
+  ["Up to Rs. 5,00,000", "0.10% or Rs. 10, whichever is higher", "Per transaction"],
+  ["Rs. 5,00,001–50,00,000", "0.05%", "Per transaction"],
+  ["Above Rs. 50,00,000", "0.02%", "Per transaction"],
 ];
 
 const dematRows = [
@@ -57,9 +77,15 @@ const dematRows = [
   ["DEMAT account maintenance (AMC)", "Rs. 100", "Annual"],
   ["Mero Share registration", "Rs. 50", "One time"],
   ["Mero Share renewal", "Rs. 50", "Annual"],
-  ["Share pledge", "Rs. 50", "Per transaction"],
-  ["Account freeze", "Rs. 25", "Per request"],
-  ["Rematerialization", "Rs. 50 per stock", "Per stock"],
+  ["Share debit / transfer transaction", "Rs. 25 per stock", "Per transfer day"],
+  ["Pledge charge", "Rs. 50", "Per stock"],
+];
+
+const otherChargesRows = [
+  ["SEBON transaction fee on shares", "0.015%", "Per transaction"],
+  ["SEBON fee on corporate debentures", "0.010%", "Per transaction"],
+  ["SEBON fee on eligible other bonds", "0.005%", "Per transaction"],
+  ["SEBON fee on mutual fund units", "0.010%", "Per transaction"],
 ];
 
 const capitalGainsRows = [
@@ -666,31 +692,64 @@ function ServiceRates() {
       {showCalculator && <ShareCalculator />}
 
       {/* The three requested rate cards */}
-      <div className="space-y-6 sm:space-y-8">
-        <RateCard
-          number="A"
-          title="Share Trading Charges"
-          description="Brokerage rates and transaction fees applicable to share trading."
-          columns={["Charge", "Rate / Amount", "When Charged"]}
-          rows={shareTradingRows}
-        />
+      
+<div className="space-y-6 sm:space-y-8">
+  <RateCard
+    number="A"
+    title="Shares (Equity)"
+    description="Brokerage rates applicable to equity share transactions."
+    columns={["Transaction Amount / Charge", "Brokerage Rate", "When Charged"]}
+    rows={shareTradingRows}
+  />
 
-        <RateCard
-          number="B"
-          title="DEMAT and Mero Share Charges"
-          description="Account opening, maintenance and other depository service fees."
-          columns={["Charge", "Rate / Amount", "When Charged"]}
-          rows={dematRows}
-        />
+  <RateCard
+    number="B"
+    title="Bonds & Debentures"
+    description="Brokerage rates for bonds and debentures, including applicable SEBON fees."
+    columns={["Transaction Amount / Charge", "Rate / Amount", "When Charged"]}
+    rows={bondRows}
+  />
 
-        <RateCard
-          number="C"
-          title="Capital Gains Tax"
-          description="Capital gains tax rates by investor category and holding period."
-          columns={["Investor Category", "Holding Period", "Tax on Taxable Profit"]}
-          rows={capitalGainsRows}
-        />
-      </div>
+  <RateCard
+    number="C"
+    title="Mutual Fund Units"
+    description="Brokerage rates and transaction fees for mutual fund units."
+    columns={["Transaction Amount / Charge", "Rate / Amount", "When Charged"]}
+    rows={mutualFundRows}
+  />
+
+  <RateCard
+    number="D"
+    title="Government Securities"
+    description="Reference brokerage rates for government bonds and eligible securities."
+    columns={["Transaction Amount", "Reference Brokerage Rate", "When Charged"]}
+    rows={governmentSecuritiesRows}
+  />
+
+  <RateCard
+    number="E"
+    title="DP Charges"
+    description="Depository services, account maintenance and share transfer charges."
+    columns={["DP Service", "Example Charge", "Frequency"]}
+    rows={dematRows}
+  />
+
+  <RateCard
+    number="F"
+    title="Other Charges"
+    description="SEBON transaction fees displayed separately by security type."
+    columns={["Charge", "Reference Rate", "When Charged"]}
+    rows={otherChargesRows}
+  />
+
+  <RateCard
+    number="G"
+    title="Capital Gains Tax"
+    description="Capital gains tax rates by investor category and holding period."
+    columns={["Investor Category", "Holding Period", "Tax on Taxable Profit"]}
+    rows={capitalGainsRows}
+  />
+</div>
 
       {/* Tax note */}
       <div className="mt-6 flex items-start gap-3 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 sm:mt-8 sm:p-5">

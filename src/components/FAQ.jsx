@@ -21,7 +21,7 @@ function FAQ({ openFaq, setOpenFaq }) {
             </h2>
 
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 sm:mb-6">
-              {t("Have questions about DEMAT, trading hours, or fund settlement? Explore our frequently asked questions or reach out to our support desk.")}
+              {t("Have questions about trading ,DEMAT, trading hours, or fund settlement? Explore our frequently asked questions or reach out to our support desk.")}
             </p>
 
             <Link
@@ -76,13 +76,14 @@ function FAQ({ openFaq, setOpenFaq }) {
                         }`}
                       />
                     </div>
-                  </button>
-
-                  {open && (
-                    <div className="px-3.5 sm:px-6 pb-3.5 sm:pb-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 mt-1 pt-3">
-                      {t(f.a)}
-                    </div>
-                  )}
+                  </button>                 
+{open && (
+  <div className="px-3.5 sm:px-6 pb-3.5 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 mt-1 pt-3 space-y-3">
+    {f.a && <p>{t(f.a)}</p>}
+    {f.b && <p>{t(f.b)}</p>}
+    {f.c && <p>{t(f.c)}</p>}
+  </div>
+)}
                 </div>
               );
             })}

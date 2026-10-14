@@ -16,7 +16,7 @@ function WhyChooseUs({ statsRef }) {
       index: "02",
       icon: UserCheck,
       title: "Experienced team",
-      text: "Professional support to help clients with their trading and securities-related needs.",
+      text: "Professional support to help you with your trading and securities-related needs.",
     },
     {
       index: "03",

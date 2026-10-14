@@ -52,7 +52,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
               style={{ animationDelay: "0.2s" }}
             >
               <div>
-                 {t("Member of the Nepal Stock Exchange.")}
+                 {t("Member Broker of the Nepal Stock Exchange.")}
                   </div>
               <div>
                  {t("Licensed by the Securities Board of Nepal.")}

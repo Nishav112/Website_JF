@@ -57,10 +57,7 @@ function Services() {
                 </p>
               </div>
 
-              <div className="mt-4 sm:mt-8 pt-3 sm:pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] sm:text-xs font-medium text-slate-500">
-                <CheckCircle2 size={13} className="text-[#059669]" />
-                <span>SEBON & NEPSE Regulated</span>
-              </div>
+              
             </div>
           );
         })}
@@ -76,7 +73,7 @@ function Services() {
             {t("Service Rates")}
           </h3>
           <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
-            {t("View our brokerage charges, applicable fees and service rates.")}
+            {t("View applicable brokerages, fees, and charge rates.")}
           </p>
         </div>
 

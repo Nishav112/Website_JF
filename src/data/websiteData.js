@@ -62,12 +62,12 @@ export const SERVICES = [
   {
     icon: TrendingUp,
     title: "Brokerage Services",
-    desc: "Buy and sell securities through our licensed professional brokerage desk.",
+    desc: "Trading account opening, Buy and sell securities, adn settlement of the trade.",
   },
   {
     icon: Landmark,
     title: "DEMAT Services",
-    desc: "Open and manage your DEMAT account with full CDS-compliant support.",
+    desc: "Demat account opening, Meroshare activation, Pledge and release pledge for bank loan , BO to BO transfers, Death or Family transfers,etc.",
   },
   {
     icon: PieChart,
@@ -79,11 +79,11 @@ export const SERVICES = [
 export const STEPS = [
   {
     title: "Fill application form",
-    desc: "Complete the short online form with your basic details.",
+    desc: "Complete the KYC or online form with your basic details.",
   },
   {
     title: "Submit required documents",
-    desc: "Upload your citizenship, photo , pan number ,bank details and electricity bill.",
+    desc: "Upload your citizenship, photo , PAN number ,bank details and electricity bill.",
   },
   {
     title: "Complete KYC",
@@ -94,7 +94,7 @@ export const STEPS = [
     desc: "Your DEMAT and trading accounts are activated.",
   },
   {
-    title: "Start investing",
+    title: "Start Trading",
     desc: "Log in and place your first order on NEPSE.",
   },
 ];
@@ -240,11 +240,13 @@ export const KYC_DOWNLOADS = [
 export const FAQS = [
   {
     q: "How do I open a trading account?",
-    a: "Fill out our online application, submit your citizenship and a passport-size photo, then complete KYC at our office or through our KYC partner link. Once verified, your DEMAT and trading logins are issued.",
+    a: "Fill the KYC form thoroughly, enclose required documents, and submit to our service desk, and check your email inbox for acknowledgement message.",
   },
   {
     q: "What documents are required for KYC?",
-    a: "A citizenship certificate, a recent passport-size photo, your bank account details, and a PAN number if you plan to invest above a certain threshold.",
+    a: "For individuals: Copy of citizenship certificate, PAN card, NID Card, utility bills (electricity or water or voter card.)",
+    b: "For minors: Enclose birth certificate along with aforesaid documents of the guardian.",
+    c: "For institutions: Copy of company registraton certificate, Memorandum and Articles of Association, PAN, latest tax clearance, BOD minute for account opening and authroization to trade and sign documents, citizenship and NIN card of BOD members and account operator.",
   },
   {
     q: "What is a DEMAT account?",
@@ -252,11 +254,11 @@ export const FAQS = [
   },
   {
     q: "How can I deposit funds?",
-    a: "You can transfer funds via ConnectIPS, eSewa, or direct deposit to our company account listed under Payment Information.",
+    a: "Through Trade Management System (TMS) transfer funds for collateral deposit or make payment for buy bills to our bank account, for transfering funds you must have activated ConnectIPS or internet banking or ewallets like eSewa, Khalti,nd etc.",
   },
   {
     q: "How do I withdraw funds?",
-    a: "Submit a withdrawal request through your trading portal or contact our accounts team — funds are settled to your linked bank account within the standard T+2 cycle.",
+    a: "Normally the proceeds of sale bill are transferred after T+2cycle, if you still have receivables from us submit your withdrawal request TMS or contact our accounts team.",
   },
 ];
 
@@ -273,7 +275,7 @@ export const IMPORTANT_INFORMATION = [
     message:
       "As the Grievance Officer, I am committed to ensuring that all client concerns, complaints, and feedback are handled fairly, transparently, and in a timely manner. We encourage our valued clients to share any grievances so that we can continuously improve our services and maintain the highest standards of customer satisfaction.",
   },
-  {
+  /*{
     title: "Compliance Officer",
     description:
       "Information and contact details of the Compliance Officer.",
@@ -284,7 +286,7 @@ export const IMPORTANT_INFORMATION = [
     email: "pradip@jfsecurities.com",
     message:
       "As the Compliance Officer, I am dedicated to ensuring that our organization operates in accordance with all applicable laws, regulations, and industry standards. We remain committed to ethical business practices, transparency, and safeguarding the interests of our clients and stakeholders.",
-  },
+  },*/
   {
     title: "Targeted Sanction List",
     description: "View the Targeted Sanction List published by SEBON.",
