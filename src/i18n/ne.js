@@ -501,7 +501,7 @@ export const NE = {
   "* Capital gains tax rates and other charges are presented as supplied. Please confirm the applicable rates with JF Securities and the relevant authorities before making a transaction.":
     "* पुँजीगत लाभकरका दर र अन्य शुल्क उपलब्ध गराइएअनुसार प्रस्तुत गरिएका छन्। कारोबार गर्नुअघि जेएफ सेक्युरिटिज तथा सम्बन्धित निकायसँग लागू दरहरू पुष्टि गर्नुहोस्।",
 
-
+  
 
 
   /* ---------- Privacy policy & Terms ---------- */
