@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp, TrendingDown, ExternalLink } from "lucide-react";
 import { GAINERS, LOSERS } from "../data/websiteData";
 import { useLang } from "../i18n/useLang";
+import DocumentsChecklistModal from "./DocumentsChecklistModal";
 
 function Hero({ chartPath, heroReady, chartData = [] }) {
   const { t } = useLang();
   const [activeTab, setActiveTab] = useState("index");
+  const [showDocs, setShowDocs] = useState(false);
 
   const currentVal = chartData.length ? chartData[chartData.length - 1] : 2814.62;
   const openVal = chartData.length ? chartData[0] : 2798.1;
@@ -52,10 +54,10 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
               style={{ animationDelay: "0.2s" }}
             >
               <div>
-                 {t("Member Broker of the Nepal Stock Exchange.")}
-                  </div>
+                {t("Member Broker of the Nepal Stock Exchange.")}
+              </div>
               <div>
-                 {t("Licensed by the Securities Board of Nepal.")}
+                {t("Licensed by the Securities Board of Nepal.")}
               </div>
             </p>
 
@@ -74,15 +76,14 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                 <ArrowRight size={15} />
               </a>
 
-              <a
-                href="https://ckyc.cdsc.com.np/registration"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-smooth inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#059669] hover:text-[#059669] text-[#091E16] font-semibold text-xs sm:text-[15px] whitespace-nowrap shadow-xs"
+              <button
+                type="button"
+                onClick={() => setShowDocs(true)}
+                className="btn-smooth inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#059669] hover:text-[#059669] text-[#091E16] font-semibold text-xs sm:text-[15px] whitespace-nowrap shadow-xs cursor-pointer"
               >
                 <span>{t("Open Demat account")}</span>
                 <ExternalLink size={14} className="opacity-70" />
-              </a>
+              </button>
 
               <Link
                 to="/services"
@@ -91,27 +92,27 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                 {t("Learn more")}
               </Link>
             </div>
-            
-{/* TMS Portal Information */}
-<div className="mt-6">
-  <h2 className="text-lg font-semibold text-[#091E16]">
-    {t("NEPSE Trade Management System (TMS #07)")}
-  </h2>
 
-  <p className="mt-1 text-sm text-slate-600">
-    {t("Direct digital access to Nepal's stock exchange")}
-  </p>
+            {/* TMS Portal Information */}
+            <div className="mt-6">
+              <h2 className="text-lg font-semibold text-[#091E16]">
+                {t("NEPSE Trade Management System (TMS #07)")}
+              </h2>
 
-  <a
-    href="https://tms07.nepsetms.com.np/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#059669] hover:text-[#047857]"
-  >
-    {t("Launch TMS Portal")}
-    <ExternalLink size={14} />
-  </a>
-</div>
+              <p className="mt-1 text-sm text-slate-600">
+                {t("Direct digital access to Nepal's stock exchange")}
+              </p>
+
+              <a
+                href="https://tms07.nepsetms.com.np/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#059669] hover:text-[#047857]"
+              >
+                {t("Launch TMS Portal")}
+                <ExternalLink size={14} />
+              </a>
+            </div>
 
 
             {/* Clean unboxed regulatory metadata strip */}
@@ -157,9 +158,8 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                       {currentVal.toFixed(2)}
                     </span>
                     <span
-                      className={`inline-flex items-center gap-0.5 text-xs font-semibold mono-num ${
-                        isUp ? "text-[#059669]" : "text-rose-600"
-                      }`}
+                      className={`inline-flex items-center gap-0.5 text-xs font-semibold mono-num ${isUp ? "text-[#059669]" : "text-rose-600"
+                        }`}
                     >
                       {isUp ? (
                         <TrendingUp size={12} />
@@ -189,11 +189,10 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                       role="tab"
                       aria-selected={activeTab === tab.id}
                       onClick={() => setActiveTab(tab.id)}
-                      className={`px-2 sm:px-2.5 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold rounded-md transition-all duration-150 whitespace-nowrap cursor-pointer ${
-                        activeTab === tab.id
-                          ? "bg-white text-[#091E16] shadow-xs"
-                          : "text-slate-600 hover:text-[#091E16]"
-                      }`}
+                      className={`px-2 sm:px-2.5 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold rounded-md transition-all duration-150 whitespace-nowrap cursor-pointer ${activeTab === tab.id
+                        ? "bg-white text-[#091E16] shadow-xs"
+                        : "text-slate-600 hover:text-[#091E16]"
+                        }`}
                     >
                       {tab.label}
                     </button>
@@ -319,6 +318,11 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
           </div>
         </div>
       </div>
+      <DocumentsChecklistModal
+        open={showDocs}
+        onClose={() => setShowDocs(false)}
+        continueHref="https://ckyc.cdsc.com.np/registration"
+      />
     </section>
   );
 }
