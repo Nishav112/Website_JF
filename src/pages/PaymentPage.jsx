@@ -92,56 +92,73 @@ export default function PaymentPage() {
                   "Use your JF Securities TMS account to check outstanding payments and settle your trading transactions through the available payment options."
                 )}
               </p>
+              
+{/* Compact TMS Payment Instructions */}
+<div className="space-y-3">
 
-              {/* TMS instructions */}
-              <div className="space-y-3 sm:space-y-3.5">
+  {/* Trading Payment */}
+  <details className="group rounded-xl border border-[#D4EADF] bg-white/80">
+    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-3 sm:p-4">
+      <span className="text-sm font-bold text-[#091E16]">
+        {t("Trading Payment")}
+      </span>
+      <span className="text-xs font-semibold text-[#047857] group-open:hidden">
+        {t("View steps")} +
+      </span>
+      <span className="hidden text-xs font-semibold text-[#047857] group-open:inline">
+        {t("Hide steps")} −
+      </span>
+    </summary>
 
-                <div className="flex items-start gap-3">
-                  <span className="flex items-center justify-center shrink-0 h-6 w-6 rounded-full bg-[#D7F1E2] text-[#047857] text-xs font-bold">
-                    1
-                  </span>
-                  <p className="text-sm text-slate-700 leading-relaxed pt-0.5">
-                    {tb("Log in to your **JF Securities TMS account**.")}
-                  </p>
-                </div>
+    <div className="border-t border-[#E5F1E9] px-3 py-3 sm:px-4">
+      <ol className="list-decimal space-y-2 pl-5 text-xs sm:text-sm leading-relaxed text-slate-600">
+        {[
+          "Log in to your JF Securities TMS account.",
+          "Go to Fund Management → Fund Settlement.",
+          "Open Buy Information and check your payment due.",
+          "Select the outstanding transaction and click Make Settlement.",
+          "Click Proceed with Payment and select an available payment method.",
+        ].map((step) => (
+          <li key={step}>{t(step)}</li>
+        ))}
+      </ol>
+    </div>
+  </details>
 
-                <div className="flex items-start gap-3">
-                  <span className="flex items-center justify-center shrink-0 h-6 w-6 rounded-full bg-[#D7F1E2] text-[#047857] text-xs font-bold">
-                    2
-                  </span>
-                  <p className="text-sm text-slate-700 leading-relaxed pt-0.5">
-                    {tb("Go to **Fund Management → Fund Settlement**.")}
-                  </p>
-                </div>
+  {/* Collateral Deposit */}
+  <details className="group rounded-xl border border-[#D4EADF] bg-white/80">
+    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-3 sm:p-4">
+      <span className="text-sm font-bold text-[#091E16]">
+        {t("Collateral Deposit")}
+      </span>
+      <span className="text-xs font-semibold text-[#047857] group-open:hidden">
+        {t("View steps")} +
+      </span>
+      <span className="hidden text-xs font-semibold text-[#047857] group-open:inline">
+        {t("Hide steps")} −
+      </span>
+    </summary>
 
-                <div className="flex items-start gap-3">
-                  <span className="flex items-center justify-center shrink-0 h-6 w-6 rounded-full bg-[#D7F1E2] text-[#047857] text-xs font-bold">
-                    3
-                  </span>
-                  <p className="text-sm text-slate-700 leading-relaxed pt-0.5">
-                    {tb("Open **Buy Information** and check your payment due.")}
-                  </p>
-                </div>
+    <div className="border-t border-[#E5F1E9] px-3 py-3 sm:px-4">
+      <ol className="list-decimal space-y-2 pl-5 text-xs sm:text-sm leading-relaxed text-slate-600">
+        {[
+          "Log in to your JF Securities TMS account.",
+          "Go to Fund Management → Collateral Management.",
+          "Click Load Collateral.",
+          "Choose your bank or wallet, such as eSewa, Khalti, or CellPay.",
+          "Select your preferred payment method.",
+          "Enter the amount you want to deposit.",
+          "Enter your name and Client Code in the Remarks field.",
+          "Click Submit.",
+          "Enter the OTP received to complete verification.",
+        ].map((step) => (
+          <li key={step}>{t(step)}</li>
+        ))}
+      </ol>
+    </div>
+  </details>
 
-                <div className="flex items-start gap-3">
-                  <span className="flex items-center justify-center shrink-0 h-6 w-6 rounded-full bg-[#D7F1E2] text-[#047857] text-xs font-bold">
-                    4
-                  </span>
-                  <p className="text-sm text-slate-700 leading-relaxed pt-0.5">
-                    {tb("Select the outstanding transaction and click **Make Settlement**.")}
-                  </p>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <span className="flex items-center justify-center shrink-0 h-6 w-6 rounded-full bg-[#D7F1E2] text-[#047857] text-xs font-bold">
-                    5
-                  </span>
-                  <p className="text-sm text-slate-700 leading-relaxed pt-0.5">
-                    {tb("Click **Proceed with Payment** and select an available payment method.")}
-                  </p>
-                </div>
-
-              </div>
+</div>
             </div>
 
             {/* TMS Call To Action */}

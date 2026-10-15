@@ -99,7 +99,7 @@ function WhyChooseUs({ statsRef }) {
               {t("NEPSE Trading Services")}
             </div>
             <div className="text-[11px] sm:text-xs text-slate-300 mt-0.5 sm:mt-1">
-              Kathmandu · Damak · Tulsipur
+              {t("Kathmandu · Damak · Tulsipur")}
             </div>
           </div>
 
@@ -111,7 +111,7 @@ function WhyChooseUs({ statsRef }) {
               {t("Professional Assistance")}
             </div>
             <div className="text-[11px] sm:text-xs text-slate-300 mt-0.5 sm:mt-1">
-              Dedicated Settlement & DP Desks
+              {t("Dedicated Settlement & DP Desks")}
             </div>
           </div>
 

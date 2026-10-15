@@ -62,7 +62,7 @@ export const SERVICES = [
   {
     icon: TrendingUp,
     title: "Brokerage Services",
-    desc: "Trading account opening, Buy and sell securities, adn settlement of the trade.",
+    desc: "Trading account opening, Buy and sell securities, and settlement of the trade.",
   },
   {
     icon: Landmark,
