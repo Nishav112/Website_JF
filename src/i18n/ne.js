@@ -559,5 +559,6 @@ export const NE = {
   "Verification & Support": "प्रमाणीकरण तथा सहयोग",
   "Cancel": "रद्द गर्नुहोस्",
   "I'm ready, continue": "म तयार छु, अगाडि बढौँ",
+    "Trading Account Opening Process": "कारोबार खाता खोल्ने प्रक्रिया",
 
 };

@@ -19,6 +19,7 @@ import {
 import { IMPORTANT_INFORMATION } from "../data/websiteData";
 import { useLang } from "../i18n/useLang";
 import LanguageToggle from "./LanguageToggle";
+import DocumentsChecklistModal from "./DocumentsChecklistModal";
 
 export default function Navbar() {
   const { t } = useLang();
@@ -26,6 +27,7 @@ export default function Navbar() {
   const [moreOpen, setMoreOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [showTrading, setShowTrading] = useState(false);
   const navRef = useRef(null);
 
   // Close menus on page route changes during render
@@ -119,10 +121,9 @@ export default function Navbar() {
                 key={item.label}
                 to={item.to}
                 className={({ isActive }) =>
-                  `relative py-1.5 text-sm font-medium whitespace-nowrap transition-colors duration-150 ${
-                    isActive
-                      ? "text-[#059669] font-semibold"
-                      : "text-slate-700 hover:text-[#059669]"
+                  `relative py-1.5 text-sm font-medium whitespace-nowrap transition-colors duration-150 ${isActive
+                    ? "text-[#059669] font-semibold"
+                    : "text-slate-700 hover:text-[#059669]"
                   }`
                 }
               >
@@ -130,9 +131,8 @@ export default function Navbar() {
                   <>
                     {t(item.label === "Service Rates" ? "Brokerage & Charges" : item.label)}
                     <span
-                      className={`absolute left-0 right-0 -bottom-0.5 h-0.5 bg-[#059669] rounded-full transition-transform duration-200 origin-left ${
-                        isActive ? "scale-x-100" : "scale-x-0"
-                      }`}
+                      className={`absolute left-0 right-0 -bottom-0.5 h-0.5 bg-[#059669] rounded-full transition-transform duration-200 origin-left ${isActive ? "scale-x-100" : "scale-x-0"
+                        }`}
                     />
                   </>
                 )}
@@ -148,16 +148,14 @@ export default function Navbar() {
                   setMoreOpen(!moreOpen);
                   setLoginOpen(false);
                 }}
-                className={`flex items-center gap-1 py-1.5 text-sm font-medium whitespace-nowrap transition-colors duration-150 cursor-pointer ${
-                  moreOpen ? "text-[#059669]" : "text-slate-700 hover:text-[#059669]"
-                }`}
+                className={`flex items-center gap-1 py-1.5 text-sm font-medium whitespace-nowrap transition-colors duration-150 cursor-pointer ${moreOpen ? "text-[#059669]" : "text-slate-700 hover:text-[#059669]"
+                  }`}
               >
                 <span>{t("More")}</span>
                 <ChevronDown
                   size={15}
-                  className={`transition-transform duration-200 ${
-                    moreOpen ? "rotate-180 text-[#059669]" : ""
-                  }`}
+                  className={`transition-transform duration-200 ${moreOpen ? "rotate-180 text-[#059669]" : ""
+                    }`}
                 />
               </button>
 
@@ -184,14 +182,14 @@ export default function Navbar() {
                   >
                     {t("News & Notices")}
                   </NavLink>
-                              
-<NavLink
-  to="/service-rates"
-  onClick={() => setMoreOpen(false)}
-  className="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-[#059669] transition-colors"
->
-  {t("Brokerage & Charges")}
-</NavLink>
+
+                  <NavLink
+                    to="/service-rates"
+                    onClick={() => setMoreOpen(false)}
+                    className="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-[#059669] transition-colors"
+                  >
+                    {t("Brokerage & Charges")}
+                  </NavLink>
 
 
 
@@ -243,9 +241,8 @@ export default function Navbar() {
                 <span>{t("Login")}</span>
                 <ChevronDown
                   size={14}
-                  className={`transition-transform duration-200 ${
-                    loginOpen ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform duration-200 ${loginOpen ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 
@@ -384,16 +381,17 @@ export default function Navbar() {
                     <ExternalLink size={12} className="opacity-70" />
                   </a>
 
-                  <a
-                    href="https://tms07.nepsetms.com.np/client-registration"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl border border-emerald-200 bg-emerald-50/70 hover:bg-emerald-100 text-[#059669] text-xs font-semibold transition-colors"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileOpen(false);
+                      setShowTrading(true);
+                    }}
+                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl border border-emerald-200 bg-emerald-50/70 hover:bg-emerald-100 text-[#059669] text-xs font-semibold transition-colors cursor-pointer"
                   >
                     <span>{t("Open Account")}</span>
                     <ArrowUpRight size={12} />
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -411,10 +409,9 @@ export default function Navbar() {
                       to={item.to}
                       onClick={() => setMobileOpen(false)}
                       className={({ isActive }) =>
-                        `flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors ${
-                          isActive
-                            ? "bg-emerald-50 text-[#059669] border border-emerald-200/60"
-                            : "text-slate-700 hover:bg-slate-50 hover:text-[#091E16]"
+                        `flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors ${isActive
+                          ? "bg-emerald-50 text-[#059669] border border-emerald-200/60"
+                          : "text-slate-700 hover:bg-slate-50 hover:text-[#091E16]"
                         }`
                       }
                     >
@@ -434,10 +431,9 @@ export default function Navbar() {
                       to={item.to}
                       onClick={() => setMobileOpen(false)}
                       className={({ isActive }) =>
-                        `flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors ${
-                          isActive
-                            ? "bg-emerald-50 text-[#059669] border border-emerald-200/60"
-                            : "text-slate-700 hover:bg-slate-50 hover:text-[#091E16]"
+                        `flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors ${isActive
+                          ? "bg-emerald-50 text-[#059669] border border-emerald-200/60"
+                          : "text-slate-700 hover:bg-slate-50 hover:text-[#091E16]"
                         }`
                       }
                     >
@@ -485,8 +481,7 @@ export default function Navbar() {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors ${
-              isActive ? "text-[#059669]" : "text-slate-600 hover:text-[#091E16]"
+            `flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors ${isActive ? "text-[#059669]" : "text-slate-600 hover:text-[#091E16]"
             }`
           }
         >
@@ -497,8 +492,7 @@ export default function Navbar() {
         <NavLink
           to="/services"
           className={({ isActive }) =>
-            `flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors ${
-              isActive ? "text-[#059669]" : "text-slate-600 hover:text-[#091E16]"
+            `flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors ${isActive ? "text-[#059669]" : "text-slate-600 hover:text-[#091E16]"
             }`
           }
         >
@@ -509,8 +503,7 @@ export default function Navbar() {
         <NavLink
           to="/service-rates"
           className={({ isActive }) =>
-            `flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors ${
-              isActive ? "text-[#059669]" : "text-slate-600 hover:text-[#091E16]"
+            `flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors ${isActive ? "text-[#059669]" : "text-slate-600 hover:text-[#091E16]"
             }`
           }
         >
@@ -537,6 +530,12 @@ export default function Navbar() {
           <span>Menu</span>
         </button>
       </nav>
+      <DocumentsChecklistModal
+        open={showTrading}
+        onClose={() => setShowTrading(false)}
+        title="Trading Account Opening Process"
+        continueHref="https://tms07.nepsetms.com.np/client-registration"
+      />
     </>
   );
 }

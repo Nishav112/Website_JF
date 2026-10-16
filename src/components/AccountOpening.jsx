@@ -3,10 +3,12 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { STEPS } from "../data/websiteData";
 import { useLang } from "../i18n/useLang";
+import DocumentsChecklistModal from "./DocumentsChecklistModal";
 
 function AccountOpening() {
   const { t, n } = useLang();
   const [activeStep, setActiveStep] = useState(0);
+  const [showTrading, setShowTrading] = useState(false);
 
   return (
     <section className="bg-white border-b border-slate-200/80">
@@ -24,15 +26,14 @@ function AccountOpening() {
           </div>
 
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-            <a
-              href="https://tms07.nepsetms.com.np/client-registration"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-smooth inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-semibold text-xs sm:text-sm shadow-xs whitespace-nowrap"
+            <button
+              type="button"
+              onClick={() => setShowTrading(true)}
+              className="btn-smooth inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-semibold text-xs sm:text-sm shadow-xs whitespace-nowrap cursor-pointer"
             >
               <span>{t("Open account now")}</span>
               <ArrowRight size={15} />
-            </a>
+            </button>
             <Link
               to="/downloads"
               className="btn-smooth inline-flex items-center px-3 sm:px-4 py-2 sm:py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs sm:text-sm whitespace-nowrap shadow-xs"
@@ -52,26 +53,23 @@ function AccountOpening() {
                 type="button"
                 onClick={() => setActiveStep(i)}
                 onMouseEnter={() => setActiveStep(i)}
-                className={`text-left p-3.5 sm:p-5 sm:p-6 rounded-xl sm:rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col justify-between shrink-0 snap-center w-[78vw] max-w-[270px] sm:w-auto ${
-                  isSelected
-                    ? "bg-white border-[#059669] shadow-md shadow-slate-900/5 ring-1 ring-[#059669]/30"
-                    : "bg-white border-slate-200/90 hover:border-slate-300"
-                }`}
+                className={`text-left p-3.5 sm:p-5 sm:p-6 rounded-xl sm:rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col justify-between shrink-0 snap-center w-[78vw] max-w-[270px] sm:w-auto ${isSelected
+                  ? "bg-white border-[#059669] shadow-md shadow-slate-900/5 ring-1 ring-[#059669]/30"
+                  : "bg-white border-slate-200/90 hover:border-slate-300"
+                  }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3 sm:mb-5">
                     <span
-                      className={`disp text-xl sm:text-2xl font-bold mono-num transition-colors ${
-                        isSelected ? "text-[#059669]" : "text-slate-300"
-                      }`}
+                      className={`disp text-xl sm:text-2xl font-bold mono-num transition-colors ${isSelected ? "text-[#059669]" : "text-slate-300"
+                        }`}
                     >
                       0{n(i + 1)}
                     </span>
                     <CheckCircle2
                       size={17}
-                      className={`transition-opacity duration-200 ${
-                        isSelected ? "text-[#059669] opacity-100" : "text-slate-300 opacity-40"
-                      }`}
+                      className={`transition-opacity duration-200 ${isSelected ? "text-[#059669] opacity-100" : "text-slate-300 opacity-40"
+                        }`}
                     />
                   </div>
 
@@ -89,9 +87,8 @@ function AccountOpening() {
                     {t("Step")} {n(i + 1)} / {n(STEPS.length)}
                   </span>
                   <span
-                    className={`h-1.5 w-6 sm:w-8 rounded-full transition-colors ${
-                      isSelected ? "bg-[#059669]" : "bg-slate-200"
-                    }`}
+                    className={`h-1.5 w-6 sm:w-8 rounded-full transition-colors ${isSelected ? "bg-[#059669]" : "bg-slate-200"
+                      }`}
                   />
                 </div>
               </button>
@@ -99,6 +96,12 @@ function AccountOpening() {
           })}
         </div>
       </div>
+      <DocumentsChecklistModal
+        open={showTrading}
+        onClose={() => setShowTrading(false)}
+        title="Trading Account Opening Process"
+        continueHref="https://tms07.nepsetms.com.np/client-registration"
+      />
     </section>
   );
 }
