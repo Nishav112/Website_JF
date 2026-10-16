@@ -1,0 +1,406 @@
+/**
+ * YONEPSE static JSON data source.
+ *
+ * Public, unauthenticated, CORS-enabled NEPSE market data published by the
+ * YONEPSE project (MIT licensed) at https://github.com/shubhamnpk/yonepse
+ *
+ * Every endpoint is served as a static file, so there is no API key to
+ * protect and no backend to run. This is intentional: a key placed in this
+ * bundle would be readable by every visitor.
+ *
+ * The project commits fresh data to the `main` branch roughly every hour
+ * during trading hours (Mon-Fri, 11:00-15:00 NPT), but its GitHub Pages
+ * deployment lags days behind. We therefore read the raw repo content first
+ * (which is also served with `Access-Control-Allow-Origin: *`) and fall back
+ * to the Pages mirror only if the raw host is unreachable.
+ *
+ * That cadence is shown honestly in the UI - this is not tick data.
+ */
+
+const BASES = [
+  "https://raw.githubusercontent.com/shubhamnpk/yonepse/main",
+  "https://shubhamnpk.github.io/yonepse",
+];
+const CACHE_PREFIX = "jf:nepse:v3:";
+
+const REQUEST_TIMEOUT = 12000;
+
+/** Freshness windows (ms). */
+export const TTL = {
+  fast: 2 * 60 * 1000, // index snapshot, session summary, open/closed
+  quotes: 5 * 60 * 1000, // every listed stock's LTP
+  reference: 12 * 60 * 60 * 1000, // security master (changes every ~60 days)
+  history: 6 * 60 * 60 * 1000, // index daily history shards
+};
+
+const TTL_CLOSED = 60 * 60 * 1000;
+
+/* ------------------------------------------------------------------ *
+ * Cache
+ * ------------------------------------------------------------------ */
+
+const inflight = new Map();
+
+function readCache(key) {
+  try {
+    const raw = localStorage.getItem(CACHE_PREFIX + key);
+    if (!raw) return null;
+    const entry = JSON.parse(raw);
+    if (!entry || typeof entry.t !== "number") return null;
+    if (Date.now() - entry.t > entry.x) return null;
+    return entry.v;
+  } catch {
+    return null;
+  }
+}
+
+function writeCache(key, value, ttl) {
+  try {
+    localStorage.setItem(
+      CACHE_PREFIX + key,
+      JSON.stringify({ t: Date.now(), x: ttl, v: value }),
+    );
+  } catch {
+    // Private mode or quota exceeded - carry on uncached.
+  }
+}
+
+async function fetchJSON(path) {
+  let lastError;
+
+  for (const base of BASES) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
+
+    try {
+      const res = await fetch(`${base}${path}`, { signal: controller.signal });
+      if (!res.ok) throw new Error(`HTTP ${res.status} for ${path}`);
+      return await res.json();
+    } catch (err) {
+      lastError = err;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  throw lastError ?? new Error(`Failed to fetch ${path}`);
+}
+
+/**
+ * Cache-first fetch. Concurrent callers share one request.
+ * Resolves to `null` on failure - callers must never substitute fake values.
+ */
+function load(key, ttl, force = false) {
+  if (!force) {
+    const cached = readCache(key);
+    if (cached !== null) return Promise.resolve(cached);
+    if (inflight.has(key)) return inflight.get(key);
+  }
+
+  const promise = fetchJSON(key)
+    .then((data) => {
+      if (data !== null && data !== undefined) writeCache(key, data, ttl);
+      return data;
+    })
+    .catch(() => null)
+    .finally(() => inflight.delete(key));
+
+  inflight.set(key, promise);
+  return promise;
+}
+
+/* ------------------------------------------------------------------ *
+ * Normalisers
+ * ------------------------------------------------------------------ */
+
+function num(value) {
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
+}
+
+function pickIndex(rows, label) {
+  if (!Array.isArray(rows)) return null;
+  return rows.find((r) => r && r.index === label) ?? null;
+}
+
+function normaliseIndex(row) {
+  if (!row) return null;
+
+  const value = num(row.currentValue) ?? num(row.close);
+  if (value === null) return null;
+
+  const previousClose = num(row.previousClose);
+
+  // Derive change when the feed omits it.
+  let change = num(row.change);
+  let perChange = num(row.perChange);
+  if (change === null && previousClose !== null) change = value - previousClose;
+  if (perChange === null && change !== null && previousClose) {
+    perChange = (change / previousClose) * 100;
+  }
+
+  return {
+    name: row.index,
+    value,
+    previousClose,
+    change,
+    perChange,
+    high: num(row.high),
+    low: num(row.low),
+    at: typeof row.generatedTime === "string" ? row.generatedTime : null,
+  };
+}
+
+function normaliseSummary(rows) {
+  if (!Array.isArray(rows)) return null;
+
+  const out = {
+    turnover: null,
+    tradedShares: null,
+    transactions: null,
+    scrips: null,
+  };
+
+  for (const row of rows) {
+    if (!row || typeof row.detail !== "string") continue;
+    const label = row.detail.toLowerCase();
+    const value = num(row.value);
+
+    if (label.includes("turnover")) out.turnover = value;
+    else if (label.includes("traded shares")) out.tradedShares = value;
+    else if (label.includes("transaction")) out.transactions = value;
+    else if (label.includes("scrip")) out.scrips = value;
+  }
+
+  const hasAny = Object.values(out).some((v) => v !== null);
+  return hasAny ? out : null;
+}
+
+/** Active common-equity symbols, used to keep mutual funds and bonds out. */
+function buildEquityFilter(securities) {
+  const set = new Set();
+  if (!Array.isArray(securities)) return set;
+
+  for (const s of securities) {
+    if (!s || s.instrumentType !== "Equity" || s.status !== "A") continue;
+    if (typeof s.symbol === "string") set.add(s.symbol);
+  }
+  return set;
+}
+
+function normaliseStocks(rows, equityFilter) {
+  if (!Array.isArray(rows)) return null;
+
+  const hasFilter = equityFilter && equityFilter.size > 0;
+  const out = [];
+
+  for (const row of rows) {
+    if (!row || typeof row.symbol !== "string") continue;
+    if (hasFilter && !equityFilter.has(row.symbol)) continue;
+
+    const ltp = num(row.ltp);
+    if (ltp === null || ltp <= 0) continue;
+
+    out.push({
+      symbol: row.symbol,
+      name: typeof row.name === "string" ? row.name : row.symbol,
+      ltp,
+      previousClose: num(row.previous_close),
+      change: num(row.change),
+      percentChange: num(row.percent_change),
+      high: num(row.high),
+      low: num(row.low),
+      volume: num(row.volume),
+      turnover: num(row.turnover),
+      trades: num(row.trades),
+    });
+  }
+
+  return out.length > 0 ? out : null;
+}
+
+/**
+ * Flatten a monthly shard's `series.NEPSE` rows into `{ date, close }`.
+ *
+ * A shard looks like:
+ *   { dates: ["2026-09-01", ...], series: { NEPSE: [[0, close, open, high,
+ *     low, turnover, volume, trades], ...], SENSIND: [...] } }
+ * so the first element of each row is an *index into `dates`*, not a date.
+ * `series` is an object keyed by index name, not an array.
+ */
+function readShard(shard, into) {
+  if (!shard || !Array.isArray(shard.dates)) return;
+
+  const rows = shard.series?.NEPSE;
+  if (!Array.isArray(rows)) return;
+
+  for (const row of rows) {
+    if (!Array.isArray(row) || row.length < 2) continue;
+    const date = shard.dates[row[0]];
+    const close = num(row[1]);
+    if (typeof date !== "string" || close === null) continue;
+    into.set(date, close);
+  }
+}
+
+function monthKeys(available, count) {
+  if (!Array.isArray(available) || available.length === 0) return [];
+  return available.slice(-count).reverse();
+}
+
+/* ------------------------------------------------------------------ *
+ * Public API
+ * ------------------------------------------------------------------ */
+
+export async function getStatus({ force = false, isOpen = false } = {}) {
+  const raw = await load("/data/market/status.json", isOpen ? TTL.fast : TTL_CLOSED, force);
+  if (!raw || typeof raw !== "object") return null;
+
+  return {
+    isOpen: raw.is_open === true,
+    lastChecked: typeof raw.last_checked === "string" ? raw.last_checked : null,
+  };
+}
+
+export async function getIndices({ force = false, isOpen = false } = {}) {
+  const raw = await load("/data/market/indices.json", isOpen ? TTL.fast : TTL_CLOSED, force);
+  if (!Array.isArray(raw)) return null;
+
+  return {
+    nepse: normaliseIndex(pickIndex(raw, "NEPSE Index")),
+    sensitive: normaliseIndex(pickIndex(raw, "Sensitive Index")),
+    float: normaliseIndex(pickIndex(raw, "Float Index")),
+    sensitiveFloat: normaliseIndex(pickIndex(raw, "Sensitive Float Index")),
+  };
+}
+
+export async function getSummary({ force = false, isOpen = false } = {}) {
+  const raw = await load("/data/market/summary.json", isOpen ? TTL.fast : TTL_CLOSED, force);
+  return normaliseSummary(raw);
+}
+
+/**
+ * Daily NEPSE index closes for the last `months` monthly shards, oldest first.
+ */
+export async function getIndexSeries({ months = 2, force = false } = {}) {
+  const manifest = await load("/data/indices/manifest.json", TTL.history, force);
+  const keys = monthKeys(manifest?.availableMonths, months);
+  if (keys.length === 0) return null;
+
+  const shards = await Promise.all(
+    keys.map((k) => load(`/data/indices/monthly/${k}.json`, TTL.history, force)),
+  );
+
+  const byDate = new Map();
+  for (const shard of shards) readShard(shard, byDate);
+
+  if (byDate.size === 0) return null;
+
+  return [...byDate.entries()]
+    .map(([date, close]) => ({ date, close }))
+    .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+}
+
+/**
+ * All live stock quotes, filtered to active common equities.
+ * `map` is keyed by symbol for O(1) lookups.
+ */
+export async function getQuotes({ force = false, isOpen = false } = {}) {
+  const [rows, securities] = await Promise.all([
+    load("/data/nepse_data.json", isOpen ? TTL.quotes : TTL_CLOSED, force),
+    load("/data/other/securities.json", TTL.reference, force),
+  ]);
+
+  const stocks = normaliseStocks(rows, buildEquityFilter(securities));
+  if (!stocks) return null;
+
+  return { stocks, map: new Map(stocks.map((s) => [s.symbol, s])) };
+}
+
+/**
+ * Combines every feed into one object for the home screen.
+ * Uses allSettled so a single failing endpoint degrades instead of blanking
+ * the whole section.
+ */
+export async function loadMarket({ force = false, months = 2 } = {}) {
+  const status = await getStatus({ force });
+
+  // Only hit the fast-moving feeds at open-market cadence when trading.
+  const fast = { force, isOpen: status?.isOpen === true };
+
+  const [indices, summary, series, quotes] = await Promise.all([
+    getIndices(fast),
+    getSummary(fast),
+    getIndexSeries({ months, force }),
+    getQuotes(fast),
+  ]);
+
+  const nepse = indices?.nepse ?? null;
+
+  // The history shards run ~10 days behind the live snapshot, so append the
+  // live value as the trailing point. Keying by date means this both extends
+  // the line and de-duplicates once the shards catch up.
+  let chart = series;
+  if (nepse?.value != null && nepse.at) {
+    const liveDate = nepse.at.slice(0, 10);
+    const byDate = new Map((series ?? []).map((p) => [p.date, p.close]));
+    byDate.set(liveDate, nepse.value);
+    chart = [...byDate.entries()]
+      .map(([date, close]) => ({ date, close }))
+      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+  }
+
+  return {
+    status,
+    indices,
+    index: nepse,
+    summary,
+    series: chart,
+    quotes,
+    // True only when we have enough to render the index headline honestly.
+    hasIndex: nepse?.value != null,
+    hasSeries: (chart?.length ?? 0) > 1,
+  };
+}
+
+/* ------------------------------------------------------------------ *
+ * Selectors
+ * ------------------------------------------------------------------ */
+
+function byTurnoverThenPercent(a, b) {
+  return (b.turnover ?? 0) - (a.turnover ?? 0) || (b.percentChange ?? 0) - (a.percentChange ?? 0);
+}
+
+/**
+ * The most-traded active equities, for the scrolling ticker strip.
+ * Sorted by turnover rather than by a hand-written symbol list, so the strip
+ * always reflects what the market is actually trading.
+ */
+export function selectTickerStocks(quotes, limit = 12) {
+  if (!quotes?.stocks) return [];
+
+  return [...quotes.stocks]
+    .filter((s) => (s.turnover ?? 0) > 0)
+    .sort(byTurnoverThenPercent)
+    .slice(0, limit);
+}
+
+/**
+ * Top gainers and losers by percentage change. Turnover breaks ties so a flat
+ * market (everything 0.00%) still shows the most liquid names rather than
+ * an arbitrary alphabetical slice.
+ */
+export function selectMovers(quotes, limit = 5) {
+  if (!quotes?.stocks) return { gainers: [], losers: [] };
+
+  const ranked = quotes.stocks.filter((s) => s.percentChange !== null);
+
+  const byPercentDesc = (a, b) => b.percentChange - a.percentChange || byTurnoverThenPercent(a, b);
+  const byPercentAsc = (a, b) => a.percentChange - b.percentChange || byTurnoverThenPercent(a, b);
+
+  return {
+    gainers: [...ranked].sort(byPercentDesc).slice(0, limit),
+    losers: [...ranked].sort(byPercentAsc).slice(0, limit),
+  };
+}
+
+export default loadMarket;

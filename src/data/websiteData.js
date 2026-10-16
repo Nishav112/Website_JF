@@ -45,19 +45,6 @@ export const BRANCHES = [
   },
 ];
 
-export const TICKER_SEED = [
-  { sym: "NABIL", name: "Nabil Bank", price: 812.4 },
-  { sym: "HBL", name: "Himalayan Bank", price: 468.2 },
-  { sym: "NLIC", name: "Nepal Life", price: 1042.6 },
-  { sym: "ALICL", name: "Arun Valley", price: 355.9 },
-  { sym: "SANIMA", name: "Sanima Bank", price: 289.5 },
-  { sym: "NICA", name: "NIC Asia", price: 501.1 },
-  { sym: "GBIME", name: "Global IME", price: 244.7 },
-  { sym: "EBL", name: "Everest Bank", price: 612.3 },
-  { sym: "LSL", name: "Laxmi Sunrise", price: 198.4 },
-  { sym: "NIFRA", name: "Nepal Infra", price: 176.2 },
-];
-
 export const SERVICES = [
   {
     icon: TrendingUp,
@@ -131,22 +118,6 @@ export const BANK_DETAILS = {
   email: "accounts@jfsecurities.com",
   viber: "9861413588",
 };
-
-export const GAINERS = [
-  { name: "Nabil Bank", chg: "+6.12%" },
-  { name: "Himalayan Bank", chg: "+4.25%" },
-  { name: "Nepal Life", chg: "+3.07%" },
-  { name: "Everest Bank", chg: "+2.60%" },
-  { name: "Laxmi Sunrise", chg: "+2.41%" },
-];
-
-export const LOSERS = [
-  { name: "Nepal Life", chg: "-2.16%" },
-  { name: "Arun Valley", chg: "-1.80%" },
-  { name: "Sanima Bank", chg: "-1.42%" },
-  { name: "NIC Asia", chg: "-1.13%" },
-  { name: "Global IME", chg: "-0.94%" },
-];
 
 export const KYC_DOWNLOADS = [
   {

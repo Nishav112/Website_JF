@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 
+import useNepseMarket from "./hooks/useNepseMarket";
 import Navbar from "./components/Navbar";
 import TickerBar from "./components/TickerBar";
 import Footer from "./components/Footer";
@@ -19,6 +20,7 @@ const FONT_IMPORT = `@import url('https://fonts.googleapis.com/css2?family=Plus+
 
 export default function App() {
   const isHome = useLocation().pathname === "/";
+  const market = useNepseMarket({ active: isHome });
 
   return (
     <div
@@ -103,13 +105,13 @@ export default function App() {
         @media (max-width: 850px) { .app-root { overflow-x: clip !important; } }
       `}</style>
 
-      {isHome && <TickerBar />}
+      {isHome && <TickerBar market={market} />}
       <Navbar />
       <ScrollToTop />
 
       <div className="flex-1">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home market={market} />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<Services />} />
           <Route path="/service-rates" element={<ServiceRates />} />

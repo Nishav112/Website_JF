@@ -1,20 +1,55 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp, TrendingDown, ExternalLink } from "lucide-react";
-import { GAINERS, LOSERS } from "../data/websiteData";
+import { selectMovers } from "../services/yonepse";
+import { formatPercent, formatNepalTime, isStale } from "../utils/format";
 import { useLang } from "../i18n/useLang";
 import DocumentsChecklistModal from "./DocumentsChecklistModal";
 
-function Hero({ chartPath, heroReady, chartData = [] }) {
+function Hero({ market, chartPath, heroReady }) {
   const { t } = useLang();
   const [activeTab, setActiveTab] = useState("index");
   const [showDocs, setShowDocs] = useState(false);
 
-  const currentVal = chartData.length ? chartData[chartData.length - 1] : 2814.62;
-  const openVal = chartData.length ? chartData[0] : 2798.1;
-  const change = currentVal - openVal;
-  const pct = (change / (openVal || 1)) * 100;
-  const isUp = change >= 0;
+  const index = market?.index;
+
+  const currentVal = index?.value;
+  const openVal = index?.previousClose;
+
+  // Derive change when the feed omits it (mirrors the service normaliser).
+  let change = index?.change;
+  let pct = index?.perChange;
+  if (change == null && Number.isFinite(currentVal) && Number.isFinite(openVal)) {
+    change = currentVal - openVal;
+  }
+  if (pct == null && Number.isFinite(change) && openVal) {
+    pct = (change / openVal) * 100;
+  }
+
+  const isUp = (change ?? 0) >= 0;
+  const isOpen = market?.isOpen === true;
+  const stale = isOpen && isStale(index?.at);
+  const asOf = formatNepalTime(index?.at);
+
+  const movers = useMemo(() => selectMovers(market?.quotes), [market?.quotes]);
+  const gainers = useMemo(
+    () =>
+      movers.gainers.map((s) => ({
+        name: s.symbol,
+        chg: formatPercent(s.percentChange),
+      })),
+    [movers],
+  );
+  const losers = useMemo(
+    () =>
+      movers.losers.map((s) => ({
+        name: s.symbol,
+        chg: formatPercent(s.percentChange),
+      })),
+    [movers],
+  );
+
+  const fmt = (n) => (Number.isFinite(n) ? n.toFixed(2) : "—");
 
   return (
     <section className="relative bg-[#F9FBF9] border-b border-slate-200/80 overflow-hidden">
@@ -155,7 +190,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                   </div>
                   <div className="flex items-baseline gap-2 mt-0.5">
                     <span className="disp text-xl sm:text-3xl font-bold text-[#091E16] mono-num">
-                      {currentVal.toFixed(2)}
+                      {fmt(currentVal)}
                     </span>
                     <span
                       className={`inline-flex items-center gap-0.5 text-xs font-semibold mono-num ${isUp ? "text-[#059669]" : "text-rose-600"
@@ -166,8 +201,10 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                       ) : (
                         <TrendingDown size={12} />
                       )}
-                      {isUp ? "+" : ""}
-                      {change.toFixed(2)} ({pct.toFixed(2)}%)
+                      {Number.isFinite(change)
+                        ? `${isUp ? "+" : ""}${change.toFixed(2)}`
+                        : "—"}{" "}
+                      ({fmt(pct)}%)
                     </span>
                   </div>
                 </div>
@@ -204,12 +241,33 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
               <div className="mt-3 sm:mt-4 min-h-[160px] sm:min-h-[210px] flex flex-col justify-between">
                 {activeTab === "index" && (
                   <div>
+                    <div className="flex items-center gap-1.5 flex-wrap text-[11px] sm:text-xs font-medium mb-1.5">
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                          isOpen ? "bg-[#059669]" : "bg-rose-500"
+                        }`}
+                      />
+                      <span className={isOpen ? "text-[#059669]" : "text-slate-500"}>
+                        {t(isOpen ? "Market open" : "Market closed")}
+                      </span>
+                      {asOf && (
+                        <span className="text-slate-400">
+                          · {t("as of")} {asOf} NPT
+                        </span>
+                      )}
+                      {stale && (
+                        <span className="text-amber-600">
+                          · {t("data may be delayed")}
+                        </span>
+                      )}
+                    </div>
+
                     <div className="relative h-[115px] sm:h-[165px] w-full pt-1 sm:pt-2">
                       <svg
                         viewBox="0 0 640 220"
                         preserveAspectRatio="none"
                         className="w-full h-full overflow-visible"
-                        aria-label="NEPSE simulated index trend"
+                        aria-label="NEPSE index trend, live"
                       >
                         <defs>
                           <linearGradient id="emeraldArea" x1="0" y1="0" x2="0" y2="1">
@@ -242,7 +300,7 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
                       <div>
                         <span className="text-slate-400 block text-[10px] sm:text-xs">Session Open</span>
                         <span className="font-semibold text-[#091E16] mono-num">
-                          {openVal.toFixed(2)}
+                          {fmt(openVal)}
                         </span>
                       </div>
                       <div>
@@ -268,7 +326,12 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
 
                 {activeTab === "gainers" && (
                   <div className="divide-y divide-slate-100">
-                    {GAINERS.map((row, idx) => (
+                    {gainers.length === 0 && (
+                      <p className="py-6 text-xs sm:text-sm text-slate-400 text-center">
+                        {t("Live quotes unavailable")}
+                      </p>
+                    )}
+                    {gainers.map((row, idx) => (
                       <div
                         key={idx}
                         className="flex items-center justify-between py-2 sm:py-2.5 text-xs sm:text-sm"
@@ -292,7 +355,12 @@ function Hero({ chartPath, heroReady, chartData = [] }) {
 
                 {activeTab === "losers" && (
                   <div className="divide-y divide-slate-100">
-                    {LOSERS.map((row, idx) => (
+                    {losers.length === 0 && (
+                      <p className="py-6 text-xs sm:text-sm text-slate-400 text-center">
+                        {t("Live quotes unavailable")}
+                      </p>
+                    )}
+                    {losers.map((row, idx) => (
                       <div
                         key={idx}
                         className="flex items-center justify-between py-2 sm:py-2.5 text-xs sm:text-sm"

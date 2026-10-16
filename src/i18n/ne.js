@@ -40,6 +40,11 @@ export const NE = {
   "NEPSE #07":"नेप्से #०७",
   "13023300":"१३०२३३००",
   "SEBON & CDSC":"सेबोन र सीडीएस",
+  "Market open": "बजार खुला",
+  "Market closed": "बजार बन्द",
+  "as of": "समय",
+  "data may be delayed": "तथ्याङ्क ढिलो हुन सक्छ",
+  "Live quotes unavailable": "लाइभ मूल्य उपलब्ध छैन",
 
   /* ---------- Account opening steps ---------- */
   "Get started": "सुरु गर्नुहोस्",
