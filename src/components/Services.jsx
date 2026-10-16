@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ExternalLink, CheckCircle2 } from "lucide-react";
 import { SERVICES } from "../data/websiteData";
 import { useLang } from "../i18n/useLang";
+import DocumentsChecklistModal from "./DocumentsChecklistModal";
 
 function Services() {
   const { t, n } = useLang();
+  const [showTrading, setShowTrading] = useState(false);
 
   return (
     <section className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-16 md:py-24">
@@ -57,7 +60,7 @@ function Services() {
                 </p>
               </div>
 
-              
+
             </div>
           );
         })}
@@ -86,17 +89,22 @@ function Services() {
             <ArrowRight size={15} />
           </Link>
 
-          <a
-            href="https://tms07.nepsetms.com.np/client-registration"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-smooth inline-flex items-center gap-1.5 px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl border border-white/20 hover:bg-white/10 text-white text-xs sm:text-sm font-semibold whitespace-nowrap"
+          <button
+            type="button"
+            onClick={() => setShowTrading(true)}
+            className="btn-smooth inline-flex items-center gap-1.5 px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl border border-white/20 hover:bg-white/10 text-white text-xs sm:text-sm font-semibold whitespace-nowrap cursor-pointer"
           >
             <span>{t("Open trading account")}</span>
             <ExternalLink size={14} />
-          </a>
+          </button>
         </div>
       </div>
+      <DocumentsChecklistModal
+        open={showTrading}
+        onClose={() => setShowTrading(false)}
+        title="Trading Account Opening Process"
+        continueHref="https://tms07.nepsetms.com.np/client-registration"
+      />
     </section>
   );
 }

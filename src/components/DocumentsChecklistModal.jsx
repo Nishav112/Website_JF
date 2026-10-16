@@ -60,7 +60,12 @@ const DOCUMENTS = [
   },
 ];
 
-export default function DocumentsChecklistModal({ open, onClose, continueHref }) {
+export default function DocumentsChecklistModal({
+  open,
+  onClose,
+  continueHref,
+  title = "Demat Account Opening Process",
+}) {
   const { t } = useLang();
 
   useEffect(() => {
@@ -112,7 +117,7 @@ export default function DocumentsChecklistModal({ open, onClose, continueHref })
               id="docs-modal-title"
               className="disp text-xl sm:text-3xl text-[#059669]"
             >
-              {t("Demat Account Opening Process")}
+             {t(title)} 
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-1.5">
               {t("Please keep the following documents ready before you continue.")}
