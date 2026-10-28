@@ -10,7 +10,7 @@ function PlatformShowcase() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-10">
           <div>
             <div className="text-xs sm:text-sm font-semibold text-[#059669] mb-1 sm:mb-2">
-              NEPSE Trade Management System (TMS #07)
+              {t("NEPSE Trade Management System (TMS #07)")}
             </div>
             <h2 className="disp text-xl xs:text-2xl sm:text-3xl md:text-4xl text-[#091E16]">
               {t("Direct digital access to Nepal's stock exchange")}

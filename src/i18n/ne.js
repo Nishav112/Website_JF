@@ -34,12 +34,12 @@ export const NE = {
   "Open trading account": "कारोबार खाता खोल्नुहोस्",
   "Open Demat account": "डिम्याट खाता खोल्नुहोस्",
   "Learn more": "थप जान्नुहोस्",
-  "Broker License":"ब्रोकर लाइसेन्स",
+  "Member Broker":"सदस्य दलाल.",
   "Depository Participant":"डिपोजिटरी सहभागी",
   "Regulator":"नियामक",
   "NEPSE #07":"नेप्से #०७",
   "13023300":"१३०२३३००",
-  "SEBON & CDSC":"सेबोन र सीडीएस",
+  "SEBON":"सेबोन",
   "Market open": "बजार खुला",
   "Market closed": "बजार बन्द",
   "as of": "समय",
@@ -57,7 +57,7 @@ export const NE = {
   "We verify your identity per SEBON regulations.": "हामी सेबोनको नियमअनुसार तपाईंको पहिचान प्रमाणित गर्छौं।",
   "Account verification": "खाता प्रमाणीकरण",
   "Your DEMAT and trading accounts are activated.": "तपाईंको डिम्याट र ट्रेडिङ खाता सक्रिय गरिन्छ।",
-  "Start investing": "लगानी सुरु गर्नुहोस्",
+  "Start Trading": "लगानी सुरु गर्नुहोस्",
   "Log in and place your first order on NEPSE.": "लगइन गरी नेप्सेमा आफ्नो पहिलो अर्डर राख्नुहोस्।",
   "Open account now": "अहिले नै खाता खोल्नुहोस्",
   "Download Account Opening forms":"खाता खोल्ने फारामहरू डाउनलोड गर्नुहोस्",
@@ -173,6 +173,12 @@ export const NE = {
   "J.F. Securities Company Pvt. Ltd.": "जे.एफ. सेक्युरिटिज कम्पनी प्रा. लि.",
   "Your trusted connection to Nepal's capital market.": "नेपालको पुँजी बजारसँग तपाईंको विश्वसनीय जोड।",
   "We remain committed to providing reliable and accessible securities services to our clients.": "हामी ग्राहकहरूलाई भरपर्दो र सुलभ धितोपत्र सेवा प्रदान गर्न प्रतिबद्ध रहिरहन्छौं।",
+  "Regulatory Credentials": "नियामकीय प्रमाणपत्रहरू",
+  "NEPSE Broker": "नेप्से ब्रोकर",
+  "SEBON License": "सेबोन इजाजतपत्र",
+  "CDSCL DP ID": "सीडीएससीएल डीपी आईडी",
+  "Member #07": "सदस्य नं. ०७",
+  "No. 20": "नं. २०",
 
   /* ---------- Contact page ---------- */
   "Contact us": "हामीलाई सम्पर्क गर्नुहोस्",
@@ -391,12 +397,38 @@ export const NE = {
   "Account opening, maintenance and other depository service fees.":
     "खाता खोल्ने, मर्मत गर्ने तथा अन्य निक्षेप सेवाका शुल्कहरू।",
 
+  "Shares (Equity)": "सेयर (इक्विटी)",
+  "Brokerage rates applicable to equity share transactions.":"सेयर कारोबारमा लागू हुने ब्रोकरेज दरहरू।",
+  "Bonds & Debentures": "बन्ड तथा ऋणपत्र",
+  "Brokerage rates for bonds and debentures, including applicable SEBON fees.":"लागू हुने सेबोन शुल्कसहित बन्ड तथा ऋणपत्रका ब्रोकरेज दरहरू।",
+  "Mutual Fund Units": "म्युचुअल फन्डका इकाइहरू",
+  "Brokerage rates and transaction fees for mutual fund units.":"म्युचुअल फन्डका इकाइहरूको ब्रोकरेज दर तथा कारोबार शुल्क।",
+  "Government Securities": "सरकारी ऋणपत्र",
+  "Reference brokerage rates for government bonds and eligible securities.":"सरकारी ऋणपत्र तथा योग्य धितोपत्रहरूका सन्दर्भका लागि ब्रोकरेज दरहरू।",
+  "DP Charges": "डीपी शुल्क",
+  "Depository services, account maintenance and share transfer charges.":"निक्षेप सदस्य (डीपी) सेवा, खाता सञ्चालन तथा सेयर हस्तान्तरण शुल्क।",
+  "Other Charges": "अन्य शुल्क",
+  "SEBON transaction fees displayed separately by security type.":"धितोपत्रको प्रकारअनुसार सेबोन कारोबार शुल्क छुट्टाछुट्टै देखाइएको छ।",
   "Capital Gains Tax": "पुँजीगत लाभकर",
-  "Capital gains tax rates by investor category and holding period.":
-    "लगानीकर्ताको प्रकार र सेयर राखेको अवधिअनुसार पुँजीगत लाभकरका दरहरू।",
+  "Capital gains tax rates by investor category and holding period.":"लगानीकर्ताको प्रकार र सेयर राखेको अवधिअनुसार पुँजीगत लाभकरका दरहरू।",
 
   /* ---------- Rate card table headings ---------- */
 
+  "Transaction Amount / Charge": "कारोबार रकम / शुल्क",
+  "Transaction Amount":"कारोबार रकम",
+  "Reference Brokerage Rate": "सन्दर्भ ब्रोकरेज दर",
+  "Brokerage Rate":"ब्रोकरेज दर",
+  "DP Service": "डीपी सेवा",
+  "Example Charge": "उदाहरण शुल्क",
+  "Frequency": "लागू हुने आवृत्ति",
+  "Share debit / transfer transaction": "सेयर डेबिट / हस्तान्तरण कारोबार",
+  "Per transfer day": "प्रति हस्तान्तरण दिन",
+  "Pledge charge": "धितोबन्धक शुल्क",
+  "Reference Rate": "सन्दर्भ दर",
+  "SEBON transaction fee on shares": "सेयर कारोबारमा सेबोन शुल्क",
+  "SEBON fee on corporate debentures": "कर्पोरेट ऋणपत्रमा सेबोन शुल्क",
+  "SEBON fee on eligible other bonds": "अन्य योग्य ऋणपत्रमा सेबोन शुल्क",
+  "SEBON fee on mutual fund units": "म्युचुअल फन्डका इकाइहरूमा सेबोन शुल्क",
   "Charge": "शुल्क",
   "Rate": "दर",
   "Rate / Amount": "दर / रकम",
@@ -404,9 +436,14 @@ export const NE = {
   "Investor Category": "लगानीकर्ताको वर्ग",
   "Holding Period": "सेयर राखेको अवधि",
   "Tax on Taxable Profit": "करयोग्य नाफामा कर",
+  "0.10% or Rs. 10, whichever is higher":
+  "०.१०% वा रु. १०, जुन बढी हुन्छ",
+  "Rs. 25 per stock": "प्रति सेयर रु. २५",
+  "0.15% or Rs. 10, whichever is higher": "०.१५% वा रु. १०, जुन बढी हुन्छ",
 
   /* ---------- Share trading charges ---------- */
 
+  "Up to Rs. 5,00,000": "रु. ५,००,००० सम्म",
   "Brokerage — up to Rs. 50,000":
     "ब्रोकरेज — रु. ५०,००० सम्म",
   "Brokerage — Rs. 50,001–5,00,000":
@@ -418,6 +455,9 @@ export const NE = {
   "Brokerage — above Rs. 1,00,00,000":
     "ब्रोकरेज — रु. १,००,००,००० भन्दा बढी",
 
+  "Above Rs. 50,00,000": "रु. ५०,००,००० भन्दा बढी",
+  "Corporate debentures — SEBON fee": "कर्पोरेट ऋणपत्र — सेबोन शुल्क",
+  "Government / eligible bonds — SEBON fee": "सरकारी / योग्य ऋणपत्र — सेबोन शुल्क",
   "SEBON transaction fee": "सेबोन कारोबार शुल्क",
   "DP transaction charge": "डीपी कारोबार शुल्क",
   "Buy and sell": "खरिद तथा बिक्री",
@@ -428,6 +468,7 @@ export const NE = {
   "Annual": "वार्षिक",
   "Per stock": "प्रति सेयर",
   "Rs. 50 per stock": "प्रति सेयर रु. ५०",
+  
 
   /*----------DEMAT and Mero Share Charges -------------*/
   "DEMAT account opening":"डिम्याट खाता खोल्ने",

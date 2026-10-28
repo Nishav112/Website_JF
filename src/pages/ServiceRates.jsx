@@ -1382,9 +1382,9 @@ function ServiceRates() {
 
           number="A"
 
-          title="Shares (Equity)"
+          title={t("Shares (Equity)")}
 
-          description="Brokerage rates applicable to equity share transactions."
+          description={t("Brokerage rates applicable to equity share transactions.")}
 
           columns={["Transaction Amount / Charge", "Brokerage Rate", "When Charged"]}
 
@@ -1398,9 +1398,9 @@ function ServiceRates() {
 
           number="B"
 
-          title="Bonds & Debentures"
+          title={t("Bonds & Debentures")}
 
-          description="Brokerage rates for bonds and debentures, including applicable SEBON fees."
+          description={t("Brokerage rates for bonds and debentures, including applicable SEBON fees.")}
 
           columns={["Transaction Amount / Charge", "Rate / Amount", "When Charged"]}
 
@@ -1414,9 +1414,9 @@ function ServiceRates() {
 
           number="C"
 
-          title="Mutual Fund Units"
+          title={t("Mutual Fund Units")}
 
-          description="Brokerage rates and transaction fees for mutual fund units."
+          description={t("Brokerage rates and transaction fees for mutual fund units.")}
 
           columns={["Transaction Amount / Charge", "Rate / Amount", "When Charged"]}
 
@@ -1430,9 +1430,9 @@ function ServiceRates() {
 
           number="D"
 
-          title="Government Securities"
+          title={t("Government Securities")}
 
-          description="Reference brokerage rates for government bonds and eligible securities."
+          description={t("Reference brokerage rates for government bonds and eligible securities.")}
 
           columns={["Transaction Amount", "Reference Brokerage Rate", "When Charged"]}
 
@@ -1446,9 +1446,9 @@ function ServiceRates() {
 
           number="E"
 
-          title="DP Charges"
+          title={t("DP Charges")}
 
-          description="Depository services, account maintenance and share transfer charges."
+          description={t("Depository services, account maintenance and share transfer charges.")}
 
           columns={["DP Service", "Example Charge", "Frequency"]}
 
@@ -1462,9 +1462,9 @@ function ServiceRates() {
 
           number="F"
 
-          title="Other Charges"
+          title={t("Other Charges")}
 
-          description="SEBON transaction fees displayed separately by security type."
+          description={t("SEBON transaction fees displayed separately by security type.")}
 
           columns={["Charge", "Reference Rate", "When Charged"]}
 

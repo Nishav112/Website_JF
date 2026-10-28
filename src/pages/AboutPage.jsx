@@ -33,20 +33,22 @@ function AboutPage() {
           <div className="lg:col-span-4 bg-white rounded-xl sm:rounded-2xl border border-slate-200/90 p-4 sm:p-6 space-y-3 sm:space-y-4 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-semibold text-[#059669]">
               <ShieldCheck size={16} />
-              <span>Regulatory Credentials</span>
+              <span>
+                {t("Regulatory Credentials")}
+                </span>
             </div>
             <div className="divide-y divide-slate-100 text-xs sm:text-sm">
               <div className="py-2 sm:py-2.5 flex justify-between">
-                <span className="text-slate-500">NEPSE Broker</span>
-                <span className="font-bold text-[#091E16] mono-num">Member #07</span>
+                <span className="text-slate-500">{t("NEPSE Broker")}</span>
+                <span className="font-bold text-[#091E16] mono-num">{t("Member #07")}</span>
               </div>
               <div className="py-2 sm:py-2.5 flex justify-between">
-                <span className="text-slate-500">SEBON License</span>
-                <span className="font-bold text-[#091E16] mono-num">No. 20</span>
+                <span className="text-slate-500">{t("SEBON License")}</span>
+                <span className="font-bold text-[#091E16] mono-num">{t("No. 20")}</span>
               </div>
               <div className="py-2 sm:py-2.5 flex justify-between">
-                <span className="text-slate-500">CDSCL DP ID</span>
-                <span className="font-bold text-[#091E16] mono-num">13023300</span>
+                <span className="text-slate-500">{t("CDSCL DP ID")}</span>
+                <span className="font-bold text-[#091E16] mono-num">{t("13023300")}</span>
               </div>
             </div>
           </div>

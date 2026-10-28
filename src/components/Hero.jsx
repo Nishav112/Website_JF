@@ -158,19 +158,19 @@ function Hero({ market, chartPath, heroReady }) {
               <div>
                 <div className="text-[11px] sm:text-xs text-slate-500">{t("Member Broker")}</div>
                 <div className="text-xs sm:text-base font-bold text-[#091E16] mono-num mt-0.5">
-                  NEPSE #07
+                  {t("NEPSE #07")}
                 </div>
               </div>
               <div>
                 <div className="text-[11px] sm:text-xs text-slate-500">{t("Depository Participant")}</div>
                 <div className="text-xs sm:text-base font-bold text-[#091E16] mono-num mt-0.5">
-                  13023300
+                  {t("13023300")}
                 </div>
               </div>
               <div>
                 <div className="text-[11px] sm:text-xs text-slate-500">{t("Regulator")}</div>
                 <div className="text-xs sm:text-base font-bold text-[#091E16] mt-0.5">
-                  SEBON
+                  {t("SEBON")}
                 </div>
               </div>
             </div>
