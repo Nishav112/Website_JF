@@ -273,9 +273,6 @@ export const NE = {
   "Bank Transfer & QR Payment": "बैंक ट्रान्सफर तथा क्यूआर भुक्तानी",
   "You can also deposit funds using the bank details or QR code below.": "तल दिइएका बैंक विवरण वा क्यूआर कोड प्रयोग गरेर पनि रकम जम्मा गर्न सक्नुहुन्छ।",
 
-  "Settle your trading payments directly through TMS": "टिएमएस मार्फत आफ्नो कारोबारको भुक्तानी सिधै मिलाउनुहोस्",
-  "Use your JF Securities TMS account to check outstanding payments and settle your trading transactions through the available payment options.": "बाँकी भुक्तानी जाँच गर्न र उपलब्ध भुक्तानी विकल्पहरूमार्फत आफ्नो कारोबारको भुक्तानी मिलाउन जे.एफ. सेक्युरिटिज को टिएमएस खाता प्रयोग गर्नुहोस्।",
-
   "Log in to your **JF Securities TMS account**.": "आफ्नो **जे.एफ. सेक्युरिटिज टिएमएस खातामा** लगइन गर्नुहोस्।",
   "Go to **Fund Management → Fund Settlement**.": "**कोष व्यवस्थापन → फन्ड सेटलमेन्टमा जानुहोस्।",
   "Open **Buy Information** and check your payment due.": "**खरीद जानकारी खोल्नुहोस् र आफ्नो भुक्तानी बाँकी जाँच गर्नुहोस्।",
@@ -296,7 +293,6 @@ export const NE = {
   "Receipt Verification": "भुक्तानी रसिद प्रमाणीकरण",
 
   "Instant QR Deposit": "क्यूआरमार्फत तुरुन्त रकम जम्मा",
-  "Payment Instructions": "भुक्तानीसम्बन्धी निर्देशन",
   "Other ways to make your payment": "भुक्तानी गर्ने अन्य तरिकाहरू",
 
   "Visit eSewa": "इसेवामा जानुहोस्",
@@ -305,29 +301,14 @@ export const NE = {
 
   "• Open eSewa.": "• इसेवा खोल्नुहोस्।",
   "• Login to your eSewa account.": "• आफ्नो इसेवा खातामा लगइन गर्नुहोस्।",
-  "• Search or scroll down to **Stock Broker Payment**.": "• **Stock Broker Payment** खोज्नुहोस् वा तल स्क्रोल गर्नुहोस्।",
-  "• Click on **J.F. Securities Company Pvt. Ltd.**": "• **J.F. Securities Company Pvt. Ltd.** मा क्लिक गर्नुहोस्।",
   "• Enter your **Client Code and DOB**.": "• आफ्नो **क्लाइन्ट कोड र जन्ममिति (DOB)** प्रविष्ट गर्नुहोस्।",
-  "• Proceed with the payment.": "• भुक्तानी प्रक्रिया अगाडि बढाउनुहोस्।",
 
   "• Open Khalti.": "• खल्ती खोल्नुहोस्।",
   "• Login to your Khalti account.": "• आफ्नो खल्ती खातामा लगइन गर्नुहोस्।",
-
-  "• Open connectIPS.": "• connectIPS खोल्नुहोस्।",
-  "• Go to **Financial Institution**.": "• **Financial Institution** मा जानुहोस्।",
-  "• Select **Capital Market**.": "• **Capital Market** छान्नुहोस्।",
-  "• Select **Broker Payment**.": "• **Broker Payment** छान्नुहोस्।",
-  "• Fill in the transaction form.": "• कारोबार फाराम भर्नुहोस्।",
-  "• Select Broker as **No. 7 — J.F. Securities Co. Pvt. Ltd.**": "• ब्रोकरको रूपमा **No. 7 — J.F. Securities Co. Pvt. Ltd.** छान्नुहोस्।",
 
   "How to make your payment": "भुक्तानी कसरी गर्ने",
-  "• Open eSewa.": "• इसेवा खोल्नुहोस्।",
-  "• Login to your eSewa account.": "• आफ्नो इसेवा खातामा लगइन गर्नुहोस्।",
-  "• Open Khalti.": "• खल्ती खोल्नुहोस्।",
-  "• Login to your Khalti account.": "• आफ्नो खल्ती खातामा लगइन गर्नुहोस्।",
   "• Search or scroll down to **Stock Broker Payment**.": "• **स्टक ब्रोकर भुक्तानी** खोज्नुहोस् वा तल स्क्रोल गर्नुहोस्।",
   "• Click on **J.F. Securities Company Pvt. Ltd.**": "• **जे.एफ. सेक्युरिटिज कम्पनी प्रा. लि.** मा क्लिक गर्नुहोस्।",
-  "• Enter your **Client Code and DOB**.": "• आफ्नो **ग्राहक कोड र जन्ममिति** प्रविष्ट गर्नुहोस्।",
   "• Proceed with the payment.": "• भुक्तानी अगाडि बढाउनुहोस्।",
   "• Open connectIPS.": "• कनेक्टआईपीएस खोल्नुहोस्।",
   "• Go to **Financial Institution**.": "• **वित्तीय संस्था** मा जानुहोस्।",
@@ -382,7 +363,6 @@ export const NE = {
   /* ---------- Service rates page ---------- */
 
   "Back to Services": "सेवाहरूमा फर्कनुहोस्",
-  "Service Rates": "सेवा शुल्क",
   "Brokerage & Service Charges": "ब्रोकरेज तथा सेवा शुल्क",
   "View applicable share trading charges, DEMAT and Mero Share fees, and capital gains tax information.":
     "सेयर कारोबार शुल्क, डिम्याट तथा मेरो सेयर शुल्क र पुँजीगत लाभकरसम्बन्धी जानकारी हेर्नुहोस्।",
@@ -507,7 +487,6 @@ export const NE = {
   "Investor Type": "लगानीकर्ताको प्रकार",
   "Individual": "व्यक्तिगत",
   "Institutional": "संस्थागत",
-  "Capital Gains Tax": "पुँजीगत लाभकर",
 
   "Calculate": "गणना गर्नुहोस्",
   "Clear": "खाली गर्नुहोस्",
@@ -542,7 +521,6 @@ export const NE = {
   /* ---------- Additional information ---------- */
 
   "Hide Share Calculator": "सेयर क्याल्कुलेटर लुकाउनुहोस्",
-  "Important Information": "महत्त्वपूर्ण जानकारी",
 
   "* Capital gains tax rates and other charges are presented as supplied. Please confirm the applicable rates with JF Securities and the relevant authorities before making a transaction.":
     "* पुँजीगत लाभकरका दर र अन्य शुल्क उपलब्ध गराइएअनुसार प्रस्तुत गरिएका छन्। कारोबार गर्नुअघि जेएफ सेक्युरिटिज तथा सम्बन्धित निकायसँग लागू दरहरू पुष्टि गर्नुहोस्।",

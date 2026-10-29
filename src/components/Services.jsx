@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ExternalLink, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ExternalLink} from "lucide-react";
 import { SERVICES } from "../data/websiteData";
 import { useLang } from "../i18n/useLang";
 import DocumentsChecklistModal from "./DocumentsChecklistModal";
